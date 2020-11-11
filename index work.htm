@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Gwen Van Laere</title>
+<link rel="stylesheet" href="css/work.css">
+
+
+</head>
+<body>
+    <main class="wrapper">
+        <article class="resume">
+            <section class="grid-area" id="name">
+                <p id="name-surname">gwen van laere</p>
+                <p>date of birth</p>
+                <p>address</p>
+                <p>phone</p>
+                <p>e-mail</p>
+            </section>
+            <section class="grid-area" id="photo">
+              <div class="circle" id="circle"><img id="profile-picture" alt="profile-picture" src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/70763580_10156786571694842_6201612332209012736_o.jpg?_nc_cat=107&ccb=2&_nc_sid=174925&_nc_ohc=nnlslEQ_HLEAX9kcwnG&_nc_ht=scontent-frt3-1.xx&oh=31d0987573a9096db15cd4d13ec46a9f&oe=5FC9540F"></div>
+            </section>
+            <section class="grid-area" id="about">
+                <span class="grid-title">about</span><br>
+                <p style="color:red; font-weight:bold;">loves Maja :)</p>
+                <hr>
+            </section>
+            <section class="grid-area" id="work">
+                <span class="grid-title">work experience</span><br>
+                <hr>
+                    <div id="content">
+                        <ul class="timeline">
+                            <li class="event" data-date="2020">
+                                <div class="job-infos">
+                                    <h1 class="job-title">Editor / Web Developer</h1>
+                                    <div class="job-detail">
+                                        <h2>for <span class="employer">Daily Croatia</span> in Zagreb (CR)</h2>
+                                        <p class="job-discription">This is jade aja djade jadeiv ajkl aafda jade aja djade jadeiv ajkl aafda
+                                            jade aja djade jadeiv ajkl aafda. jade aja djade jadeiv ajkl aafda. <br>jade aja djade jadeiv ajkl aafda
+                                            jade aja djade jadeiv ajkl aafda jade aja djade jadeiv ajkl aafda. jade aja djade jadeiv ajkl aafda
+                                            jade aja djade jadeiv ajkl aafda. jade aja djade jadeiv ajkl aafda. <br>jade aja djade jadeiv ajkl aafda
+                                            jade aja djade jadeiv ajkl aafda jade aja djade jadeiv ajkl aafda.jade aja djade jadeiv ajkl aafda
+                                            jade aja djade jadeiv ajkl aafda
+                                        </p>
+                                        <a></a>  
+                                    </div>            
+                                </div>
+                        
+                            </li>
+                            <li id='fader' class="event" data-date="2019">
+                                <div class="job-infos">
+                                    <h1 class="job-title">Customer Care Agent</h1>
+                                    <div class="job-detail">
+                                        <h2>for <span class="employer">Q Experience</span> in Zagreb (CR)</h2>
+                                        <p class="job-discription">This is jade aja djade jadeiv ajkl aafda</p>
+                                        <a></a>  
+                                    </div>    
+                                </div>
+                        
+                            </li>
+                            <li class="event" data-date="2018">
+                                <div class="job-infos">
+                                    <h1 class="job-title">Salesman</h1>
+                                    <div class="job-detail">
+                                        <h2>for <span class="employer">Rock & Rule</span> in Kortrijk (BE)</h2>
+                                        <p class="job-discription">This is jade aja djade jadeiv ajkl aafda</p>
+                                        <a></a>  
+                                    </div>    
+                                </div>
+                        
+                            </li>
+                            <li class="event" data-date="2011">
+                                <div class="job-infos">
+                                    <h1 class="job-title">Webcontent Manager</h1>
+                                    <div class="job-detail">
+                                        <h2>for <span class="employer">Cebeo</span> in Waregem (BE)</h2>
+                                        <p class="job-discription">This is jade aja djade jadeiv ajkl aafda</p>
+                                        <a>x</a>  
+                                    </div>                                                              
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <script>
+                        var coll = document.getElementsByClassName('job-title');
+                        var i;
+                        
+                        for (i = 0; i < coll.length; i++) {
+                          coll[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.maxHeight){
+                              content.style.maxHeight = null;
+                            } else {
+                              content.style.maxHeight = content.scrollHeight + "px";
+                            } 
+                          });
+                        }
+                        </script>
+
+            </section>
+            <section class="grid-area" id="education">
+                <span class="grid-title">skills (certificates)</span><br>
+                <hr>
+            </section>
+            <section class="grid-area" id="skills">
+                <span class="grid-title">languages</span><br>
+                <hr>
+            </section>
+            <section class="grid-area" id="community">
+                <span class="grid-title">education</span><br>
+                <hr>
+            </section>
+        </article>
+    </main>
+
+</body>
+
+</html>
