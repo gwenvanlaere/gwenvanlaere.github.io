@@ -35,8 +35,8 @@ p               |   font-size: 0.8em;
   }
 
 body {
-    background: #010101;
-    /*background: url('../img/26.jpg') no-repeat;*/
+    /*background: #010101;*/
+    background: url('../img/26.jpg') no-repeat;
     
     background-size: cover;
     padding-top: 1rem;
