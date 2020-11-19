@@ -1,0 +1,1384 @@
+/*reusables
+
+-colors-
+babylon blue    |   color:  rgb(32, 155, 192);
+orange          |   color:  rgb(32, 155, 192);
+job h1 h2       |   color: #999;
+silver fox      |   color: #d4d4dc;
+are ya yellow   |   color: #feda6a;
+deep matte grey |   color: #393f4d;
+dark slate      |   color: #1d1e22;
+charcoal black  |   color: #040404;
+
+-backgrounds-
+work timeline   |   background: rgba(253, 250, 250, 0.03);
+-borders-
+grid:           |   1px solid rgba(255,255,255,.3);
+grid:hover      |   border: 1px solid rgba(255, 255, 255, 0.932);
+work timeline   |   border-left: 0.25em solid rgb(255, 230, 0);
+work timeline h1|   border-bottom: 1px solid rgb(255, 230, 0, 0.2);
+
+-font-size-
+body            |   font-size: 1.2em; 
+h1              |   font-size: 1.4em;
+h2              |   font-size: 1.0em;
+p               |   font-size: 0.8em;
+
+
+
+/*===================== Document: general typography and background =====================*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #e0e0e0;;
+    /*background: url('../img/26.jpg') no-repeat;*/
+    /*background-size: cover;*/
+    padding: 1rem;
+    color: rgb(32, 155, 192);
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    min-width: 300px;
+    
+    
+}
+
+
+
+nav {
+    background: transparent;
+    /*background: #222;*/
+    box-shadow: -12px -12px 24px 0 rgba(0,  0, 0, 0.2),
+    12px 12px 24px 0 rgba(255, 255,   255, 0.5);
+    /*box-shadow: 12px 12px 24px 0 rgba(0,  0, 0, 0.2),
+    -12px -12px 24px 0 rgba(255, 255,   255, 0.5);*/
+    
+    
+    
+    
+    
+
+}
+
+.wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 15px 0;
+     
+    
+}
+
+footer {
+    display: flex;
+    position: relative;
+    
+    /*box-shadow: -12px -12px 24px 0 rgba(0,  0, 0, 0.2),
+    12px 12px 24px 0 rgba(255, 255,   255, 0.5);*/
+    
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    
+}  
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.0em;
+}
+
+h3 {
+    font-size: 0.8em;
+}
+
+p {
+    font-size: 0.8em;
+}
+
+a:visited, a:link {
+    color: white;
+    outline: none;
+}
+
+a:hover {
+    color: grey;
+    outline: none;
+}
+a:active {
+    color: rgb(252, 248, 248);
+    outline: none;
+}
+span i {
+     display: none;
+ }
+
+/*================================== Navigation ===================================*/
+
+/********** Basic layout **********/
+    nav {
+        border: 1px solid rgb(32, 155, 192);
+        border-radius: 5px;
+    }
+
+    nav a:link, nav a:visited {
+        color: grey;
+        text-decoration: none;
+        outline: none;
+    }
+    nav a:hover {
+        color: grey;
+        outline: none;
+    }    
+    nav a:active {
+        color: white;
+        outline: none;
+    }
+  
+    .menu,
+    .submenu {
+        list-style-type: none;
+    }
+    .logo {
+        font-size: 1.57em;
+        font-weight: 900;
+        color: rgb(32, 155, 192);
+        display: block;
+        text-transform: uppercase;
+        
+    }
+    .item {
+        padding: 1.2em 0.8em 0.8em 0.8em;
+    }
+    .item.button {
+        padding: 0.8em 0.4em;
+    }
+    .item:not(.button) a:hover,
+    .item a:hover::after {
+        color: grey;
+    }
+  
+/* Mobile menu */
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    .menu li a {
+        display: block;
+        padding: 0.8em 0.3em;
+    }
+
+    .menu li.subitem a {
+        padding: 0.8em;
+        
+    }
+    .toggle {
+        order: 1;
+        font-size: 20px;
+    }
+    .item.button {
+        order: 2;
+    }
+    .item {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        display: none;
+    }
+    .active .item {
+        display: block;
+    }
+    .button.secondary {
+        border-bottom: 1px solid  rgb(32, 155, 192);
+        border-top: 1px solid  rgb(32, 155, 192); /*divider line*/
+    }
+  
+/* Submenu up from mobile screens */
+    .submenu {
+        display: none;
+    }
+    .submenu-active .submenu {
+        display: block;
+    }
+
+    .menu .has-submenu a {
+        padding-left: 1em; /*correction V font*/
+        cursor: context-menu;
+    }
+    .has-submenu i {
+        font-size: 12px;
+        display: visible;
+    }
+    .has-submenu > a::after {
+        font-family: "Font Awesome 5 Free";
+        font-size: 0.8em;
+        line-height: 16px;
+        font-weight: 900;
+        content: "\f078";
+        color:  rgb(32, 155, 192);
+        padding-left: 0.5em;
+    }
+    
+    .submenu li:first-child {
+        border-top: 2px solid  rgb(32, 155, 192);
+    }
+    .subitem a {
+        padding: 10px 15px;
+
+    }
+    .submenu-active {
+        background: white;
+        border: 1px solid  rgb(32, 155, 192);
+        border-radius: 3px;
+    }
+
+    .menu .item:not(.has-submenu) {
+        border-bottom: 1px solid rgb(32, 155, 192);
+    }
+
+        
+   
+
+
+/*********navigation responsive*********/  
+    
+    
+        
+    /* Tablet menu */
+    @media all and (min-width: 700px) {
+        
+        
+        .menu .item:not(.has-submenu) {
+            border-bottom: none;
+        }
+        
+        .logo {
+            flex: 1;
+        }
+
+        #contactbutton {
+            padding: 0;
+            
+        }
+        .item.button {
+            width: auto;
+            order: 1;
+            display: block;
+        }
+        .toggle {
+            flex: 1;
+            text-align: right;
+            order: 2;
+            
+        }
+
+        
+        /* Button up from tablet screen */
+        .menu li.button a {
+            padding: 10px 15px;
+            margin: 5px 0;
+        }
+        
+        .button.secondary {
+            border: 0;
+        }
+        .button.secondary a {
+            background: transparent;
+            border: 2px solid  rgb(32, 155, 192);
+            font-weight: bold;
+            border-radius: 5px;
+            
+        }
+       
+        .button.secondary a:hover {
+            background: rgb(32, 155, 192);
+            border: 2px solid  rgb(32, 155, 192);
+            color: white;
+            font-weight: bold;
+            text-shadow: none;
+            
+          
+        }
+        
+    }
+    /* Desktop menu */
+    @media all and (min-width: 950px) {
+    
+        nav {
+            position: relative;
+            width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 3.78em;
+        }
+
+        #contactbutton {
+            padding: 0;
+            left: 0;
+            bottom: 0.4em;
+            position: relative;
+        }
+        
+        .menu {
+            
+            flex-wrap: nowrap;
+            background: none;
+        }
+        .logo {
+            order: 0;
+        }
+        .item {
+            order: 1;
+            position: relative;
+            display: block;
+            width: auto;
+        }
+        .button {
+            order: 2;
+        }
+        .submenu-active .submenu {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 68px;
+            background: rgb(0, 0, 0);
+            width: 100%;
+        }
+        .toggle {
+            display: none;
+        }
+        .submenu-active {
+            border-radius: 0;
+            border: none;
+            z-index: 100;
+            background: black;
+        }
+        .submenu li {
+            border-top: 1px solid rgb(32, 155, 192);
+        }
+
+        .menu .has-submenu a {
+            padding: 0.8em 0.3em; /*correction V font*/
+        }
+    }
+
+/*===================== Resume: grid area setup 2 col x 4 row =====================*/
+
+
+.resume {
+    background-color: #e0e0e0;
+    display: grid;
+    justify-content: center;
+    width: 900px;
+    height: 100%;
+    z-index: 2;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 0.87fr 0.87fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+        "name  photo"
+        "work  about"
+        "work  skills"
+        "education  languages";
+}
+
+hr {
+    color:  rgb(32, 155, 192);
+}
+.grid-area {
+    padding: 1em 1em 1em 1em;
+    border: 2px solid rgb(247, 249, 250);
+    border-radius: 40px;
+    background: inherit;
+    background-color: #e0e0e0;
+    position: relative;
+    z-index: 1;      
+    box-sizing: border-box;
+    height: 100%;
+    
+        
+}
+
+.grid-area::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: -1;
+    border-radius: 40px;
+    /*box-shadow: 12px 12px 24px 0 rgba(0,  0, 0, 0.2),
+    -12px -12px 24px 0 rgba(255, 255,   255, 0.5);*/
+    
+    box-shadow: -12px -12px 24px 0 rgba(0,  0, 0, 0.2),
+    12px 12px 24px 0 rgba(255, 255,   255, 0.5);
+    
+
+}
+
+
+
+
+
+
+/************ 7 grids ************/
+#name {
+    grid-area: name;
+}
+
+#photo {
+    grid-area: photo;
+}
+
+#about {
+    grid-area: about;
+    
+        
+}
+
+#work {
+    grid-area: work;
+    
+}
+
+#skills {
+    grid-area: skills;
+    
+}
+
+#education {
+    grid-area: education;
+    
+}
+
+#languages {
+    grid-area: languages;
+    
+}
+
+/*====================================== Grids: layout ======================================*/
+
+/************** Grid 1: name (introduction) **************/
+                
+                #name {
+                    
+                    
+                    
+                }
+
+                #name:hover {
+                    
+                }                    
+ 
+
+                .name-box {
+                    height: 85%;
+                    margin: 1em auto;                    
+                    overflow-y: scroll;
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                    padding-top: 0.2em;
+                    border: 1px solid  rgb(32, 155, 192);  
+                    border-radius: 15px 15px 40px 40px;
+                    /*box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);*/
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);
+                    
+
+                    
+                    
+                    
+                }
+
+                .name-box::-webkit-scrollbar {
+                    display: none;
+                }            
+
+                .name-box p {
+                    font-family: Roboto, sans-serif;
+                    font-size: 15px;
+                    font-weight: normal;
+                    padding: 0.1em 0;
+                    text-align: left;
+                    justify-content: center; 
+                    padding: 1em;
+                                                 
+                }
+                .name-box p span {
+                    font-weight: bold;
+                }
+
+                
+                #meet-up {
+                    color:  rgb(32, 155, 192);
+                    font-weight: bold;
+                }
+
+              
+
+
+
+/************** Grid 2: picture ***************/
+                #photo {
+                    display: flex;
+                    justify-content: center; 
+                    align-items: center;
+                    /*border: 1px solid  rgb(32, 155, 192);*/
+                } 
+
+                .photo-box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    height: 85%;
+                    
+                    border: 1px solid  rgb(32, 155, 192);
+                    position: relative;
+                    top: 0.5em;
+                    border-radius: 40px;
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);
+                }
+
+                #photo:hover {
+                    
+                } 
+
+                .circle {
+                    border: 1px solid  rgb(32, 155, 192);
+                    height: 10em;
+                    width: 10em;
+                    border-radius: 50%;
+                    position: relative;
+                    margin: 1em;
+                    
+                    overflow: hidden;
+                    box-shadow: -12px -12px 24px 0 rgba(0,  0, 0, 0.2),
+                    12px 12px 24px 0 rgba(255, 255,   255, 0.5);
+                    /*box-shadow: 12px 12px 24px 0 rgba(0,  0, 0, 0.2),
+                    -12px -12px 24px 0 rgba(255, 255,   255, 0.5);*/
+                     
+                } 
+
+                #profile-picture {
+                    height: 13em;
+                    position: absolute;
+                    display: block;
+                    top: -0.1em;
+                    left: 0; 
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5); 
+                    
+                    
+                }
+
+                
+/************** Grid 3: about **************/
+                .about-box {
+                    
+                    text-align: center;
+                    margin: 1em auto;
+                    padding: 1em 0em 1em 0em;
+                    background: rgba(253, 250, 250, 0.03);
+                    border: 1px solid  rgba(249, 250, 250, 0.459);
+                    border-radius: 15px 15px 40px 40px;
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);
+                }
+
+                #about:hover .about-box {
+                    
+                    
+                    
+                }
+
+                .about-title {
+                    color:  rgb(32, 155, 192); 
+                }
+
+                .about-text {
+                    color: grey;
+                }
+
+/************** Grid 4: work experience timeline **************/   
+                
+                /************** General **************/  
+                
+                #work {
+                    box-shadow: -12px -12px 24px 0 rgba(0,  0, 0, 0.2),
+                    12px 12px 24px 0 rgba(255, 255,   255, 0.5);
+                    border-right: 2px solid rgba(255, 255, 255, 0.589);
+                    border-bottom: 2px solid rgba(255, 255, 255, 0.521);
+                    border-top: none;
+                    border-left: none;
+                }
+                         
+                .work-box {
+                    
+                    text-align: center;
+                    overflow-y: scroll;
+                    height: 100%;
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                    
+                    
+                }
+                .work-box::-webkit-scrollbar {
+                    display: none;
+                }            
+
+                /************** Timeline **************/
+                .timeline {                    
+                    margin: 2em auto;
+                    padding: 2.5em 0em 2em 1.5em;
+                    list-style-type: none;
+                    text-align: right;
+                    margin-left: 4.3em;
+                    border-radius: 0.5em 5px 5px 0.5em;
+                    border-left: 0.25em solid  rgb(32, 155, 192);
+                    border-right: 1px solid  rgb(32, 155, 192);
+                    border-top: 1px solid  rgb(32, 155, 192);
+                    border-bottom: 1px solid  rgb(32, 155, 192);
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);
+                    
+                    
+                }
+
+                
+
+                .event {
+                    /*min-width: 15em;*/
+                    width: 100%;
+                    vertical-align: middle;
+                    box-sizing: border-box;
+                    position: relative;
+                    padding-right: 1em
+                }
+
+                .timeline .event:before,
+                .timeline .event:after {
+                    position: absolute;
+                    display: block;
+                    top: 1em;
+                }
+
+                .timeline .event:before {
+                    left: -10em;
+                    top: 0.9em;
+                    color:  rgb(32, 155, 192);
+                    content: attr(data-date);
+                    text-align: center;
+                    font-weight: 100;
+                    font-size: 0.9em;
+                    min-width: 9em;
+                }
+
+                .timeline .event:after {
+                    content: "";  
+                    left: -2.0em;
+                    background:#e0e0e0;
+                    border-radius: 50%;
+                    height: 0.75em;
+                    width: 0.75em;
+                    box-shadow: 0 0 0 0.2em  rgb(32, 155, 192);
+                }
+
+                .timeline .event .job-detail,
+                .timeline .event .job-discription {
+                    display: block;
+                }
+
+                /************** Infos - Title - Detail **************/
+                .job-infos {
+                    padding: 0.6em 0 1em 0;
+                    text-align: left;
+                    position: relative;
+                    
+                }
+
+                .job-infos > h1 {
+                    font-family: 'Roboto', sans-serif;
+                    letter-spacing: 1.5px;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    color: grey;
+                    margin: 0;
+                    border-bottom: 0px solid  rgb(32, 155, 192);
+                    box-shadow: 0px 2px  rgb(32, 155, 192);
+                    padding-bottom: 0.2em;                   
+                }
+
+                
+                
+                .job-title {
+                    cursor: context-menu;
+                    
+                }
+                
+                .job-detail {
+                    border-bottom: 1px solid  rgb(32, 155, 192);
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.8s ease-in;              
+                }
+                .active + .job-detail {
+                    max-height: 100%;
+                    transition: max-height 0.8s ease-in;
+                    
+                }
+                
+             
+                
+                .job-detail > h2 {
+                    font-family: 'Roboto', sans-serif;
+                    letter-spacing: 1.5px;
+                    color:  grey;
+                    font-weight: 200;
+                    font-size: 1.0em;
+                    padding-top: 0.3em;
+                }
+
+                .job-discription-list > li {
+                    font-family: 'Roboto', sans-serif;
+                    color:   rgb(32, 155, 192);
+                    font-size: 0.8em;
+                    padding-top: 0.3em;
+                    margin-left: 1em;
+                    list-style-type: circle;
+                    display: list-item;
+                    
+                }
+
+                .job-discription-list:last-child {
+                    padding-bottom: 0.5em;
+                }
+
+                li .company {
+                    color: rgb(92, 92, 90);
+                }
+
+                
+
+/************** Grid 5: skills and certificates **************/
+                
+                /************** General **************/
+                
+                #skills:hover .skills-box {
+                    border: 1px solid  rgb(32, 155, 192);
+                    background: white;
+                    border: 1px solid  rgb(32, 155, 192);
+                    
+                }
+                .skills-box {
+                    height: 80%;
+                    margin: 1em auto;
+                    background: rgba(253, 250, 250, 0.03);
+                    border: 1px solid rgb(32, 155, 192);
+                    border-radius: 5px;
+                }
+                .skills-box:hover {
+                    
+                    
+                    /*filter: blur(0px);*/
+                    
+                }
+                
+                .skills-tab {
+                    width: 100%;
+                    overflow: hidden;                                      
+                    display: flex;
+                    justify-content: space-evenly;
+                    border-bottom: 1px solid  rgb(32, 155, 192);
+                }
+                .skills-tab button {
+                    float: left;
+                    width: 33.3333%;
+                    border: none;                    
+                    background: white;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    color:   rgb(32, 155, 192);
+                    font-size: 0.9em;
+                    transform-origin: left;
+                    transition: transform 1s;
+                }
+                .skills-tab button:hover {
+                    
+                    
+                    
+                }
+                .skills-tab button.active {
+                    
+                    background-color:grey;
+                    border: 1px solid    rgb(32, 155, 192);
+                    
+                                         
+                }
+                .skills-tab button:after {
+                    transition: all ease-in-out .9s;
+                    background: none repeat scroll 0 0  rgb(32, 155, 192);
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    width: 0;
+                    
+                }
+
+                .skills-tab button:hover:after {
+                    width: 100%;
+                }
+                
+                .skill-div {
+                    display: none;
+                    
+                }
+                
+                .skill-div:nth-child(2) {
+                    display: block;
+                    padding-top: 1em;
+                }
+
+                .skill-div ul {
+                    display: grid;
+                    row-gap: 5px;
+                    column-gap: 5px;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                    justify-items: stretch;                                     
+                    position: relative;
+                    height: 100%;
+                    padding: 0.6em 0.2em 0.2em 0.2em;
+                    
+                }
+                .skill-div p {
+                    font-weight: bold;
+                    padding-left: 0.3em;
+                }
+                .skill-div p span {
+                    font-weight: normal;
+                    text-decoration: underline;
+                    text-decoration-color:   rgb(32, 155, 192);
+                    text-decoration-thickness: 1px;
+                }
+                
+                .skill-div ul li {                    
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.7em;
+                    word-break: break-word;
+                    padding: 0.5em;
+                    list-style-type: none;
+                    border: 1px solid   rgb(32, 155, 192);
+                    text-align: center;
+                    height: 2.5em;
+                    background-color: white;
+                   
+                }
+
+                .skill-div ul li a {
+                    color:  rgb(32, 155, 192);
+                    
+                }
+                .skill-div ul .ambition {
+                    background-color: grey;
+                    border: 1px solid rgb(32, 155, 192);
+                }
+
+                .skill-div ul .filler {
+                    border: 2px solid rgb(32, 155, 192);
+                    color: rgb(32, 155, 192);
+                    
+                }
+
+                
+                .skill-div h3 {
+                    color:  rgb(32, 155, 192);
+                    display: none;
+                    
+                }
+               
+    
+
+/************** Grid 6: languages bar **************/
+                
+             
+                .language-box {
+                    height: 85%;
+                    margin: 1em auto;
+                    color: rgb(32, 155, 192);
+                    list-style: none;
+                    border: 1px solid rgb(32, 155, 192);
+                    border-radius: 15px 15px 40px 40px;
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);
+                    
+                    
+                }
+                
+                .language-box li {
+                    margin: 0.9em 0;
+                    padding: 0 0.5em 0 0.5em;
+                    
+                    
+                }
+                .language-box li p {
+                    margin: 0.2em 0;
+                    font-size: 0.8em;
+                    padding-bottom: 0.2em;
+                    
+                }
+                
+                .language-bar {
+                    background:white;
+                    display: block;
+                    height: 5px;
+                    border: 1px solid  rgb(32, 155, 192);
+                    border-radius: 10px;
+                    box-sizing: initial;
+                    box-shadow: 0 0 5px rgb(32, 155, 192);
+                    
+                }
+                
+                .language-bar span {
+                    height: 3px;
+                    float: left;
+                    background:rgb(32, 155, 192);
+                    box-sizing: initial;
+                    
+                    
+                    
+                }
+                
+                .language-bar span:after {
+                    content: "";
+                    height: 3px;
+                    width: 4px;
+                    float: right;
+                    background: rgb(32, 155, 192);
+                    box-shadow: 2px 0px 6px rgb(32, 155, 192),
+                    0px 2px 6px rgb(32, 155, 192),
+                    -2px 0px 6px rgb(32, 155, 192),
+                     0px -2px 6px rgb(32, 155, 192);
+                    box-sizing: initial;
+                    color: rgb(32, 155, 192);
+                    
+                    
+                }
+
+                
+                #languages:hover #dutch {
+                    width: 97%;
+                    animation: dutch 2s;
+                }                
+                #languages:hover #english {
+                    width: 85%;
+                    animation: english 2s;
+                }                
+                #languages:hover #french {
+                    width: 75%;
+                    animation: french 2s;
+                }                
+                #languages:hover #german {
+                    width: 60%;
+                    animation: german 2s;
+                }                
+                #languages:hover #croatian {
+                    width: 25%;
+                    animation: croatian 2s;
+                }                
+                    @keyframes dutch {
+                        0% {
+                        width: 0%;
+                        }
+                        100% {
+                        width: 97%;
+                        }
+                    }                    
+                    @keyframes english {
+                        0% {
+                        width: 0%;
+                        }
+                        100% {
+                        width: 85%;
+                        }
+                    }                    
+                    @keyframes french {
+                        0% {
+                        width: 0%;
+                        }
+                        100% {
+                        width: 75%;
+                        }
+                    }                    
+                    @keyframes german {
+                        0% {
+                        width: 0%;
+                        }
+                        100% {
+                        width: 60%;
+                        }
+                    }                    
+                    @keyframes croatian {
+                        0% {
+                        width: 0%;
+                        }
+                        100% {
+                        width: 25%;
+                        }
+                    }
+
+/************** Grid 7: education **************/             
+                .education-box {   
+                    height: 85%;                 
+                    text-align: center;
+                    margin: 1em auto;
+                    padding: 1em;
+                    background: rgba(253, 250, 250, 0.03);
+                    border: 1px solid rgb(32, 155, 192);
+                    border-radius: 15px 15px 40px 40px;
+                    box-shadow: inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2),
+                    inset 6px 6px 10px 0 rgba(255, 255, 255, 0.5);
+                }      
+                
+                #education:hover .education-box {
+                    border: 2px solid rgba(7, 7, 7, 0.986);
+                    border: 1px solid rgb(32, 155, 192);
+                    
+                 
+                }
+
+                .education-box h2 {
+                    color: rgb(32, 155, 192);
+                    font-size: 1.2em;
+                }
+
+                .education-box h3 {
+                    color: grey;
+                    font-size: 0.8em;            
+                }
+
+               .education-box hr {
+                    border-top: 1px solid rgb(32, 155, 192);
+                    border-bottom: transparent;
+                    border-left: transparent;
+                    border-right: transparent;
+                    width: 60%;
+                    margin: 1em auto;
+                    height: 1px;
+                }
+
+/*=================================== Footer ===================================*/                
+    
+ 
+footer {
+    max-width: 900px;
+    height: 2em;
+    border: 1px solid  rgb(32, 155, 192);
+    border-radius: 5px;
+    background: transparent;
+    margin-left: auto;  /* center when fullscreen */
+    margin-right: auto; 
+}  
+
+@media only screen and (max-width: 900px) {
+   
+    footer {
+        margin: 0;
+        
+    }
+}      
+/*=================================== Responsive ===================================*/
+            
+
+
+@media only screen and (max-width: 810px) {
+    
+    .job-infos > h1 {
+        font-size: 1.3em; /* fallback */
+        font-size: 3.4vw;       
+        
+    }
+
+    .about-text:last-child {
+        font-size: 0.61em;
+        font-size: 1.7vw;
+    }
+    .skill-div ul li {
+        font-size: 0.7em;
+        font-weight: normal;
+    }   
+}
+
+@media only screen and (max-width: 700px) {
+
+    
+    /*********** Reposition body & background ***********/
+    body {
+        background: #e0e0e0;
+        /*background: url('../img/26.jpg') no-repeat;*/
+        background-size: auto;
+        background-position: 45% 10%;
+    }    
+    
+    /*********** Rescaling fonts and dimensions ***********/
+    
+    
+    .name-box  {
+        max-height: 15em; 
+    }
+    
+    .name-box p {
+        padding: 1em;
+        
+    }
+
+    .photo-box {
+        position: initial;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .job-infos > h1 {
+        font-size: 1.6em;
+        
+       
+    }
+
+    .job-detail > h2 {
+        
+        font-size: 1.2em;
+       
+    }
+
+    
+    .skill-div ul li{
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+
+    #name {
+        padding-bottom: 0;
+        
+    }
+
+    .about-text:last-child {
+        font-size: 0.8em;
+        
+    }
+
+    /*********** Grid > Flex ***********/
+    .resume {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 100%;
+        width: 100%;
+    }
+
+    /*********** skills-box ***********/
+    .skill-div ul {
+        display: grid;
+        row-gap: 10px;
+        column-gap: 5px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: stretch;
+        position: relative;
+        align-items: center;
+        padding: 0.5em;
+        
+    }
+
+    .skill-div p {
+
+        padding-left: 0.6em;
+    }
+
+  
+
+    .skill-div ul li {
+        display: flex;
+        font-size: 0.8em;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        list-style-type: none;
+        border: 1px solid   rgb(32, 155, 192);        
+        height: 3em; 
+    }
+
+    /*********** work scroll ***********/
+    #work {
+        position: relative;
+        height: 30em;
+        overflow: hidden;
+        padding-bottom: 2.5em;
+    }
+    
+
+    #photo {
+        /*order: -1;*/
+    }
+    
+    /********** work: timeline reposition **********/
+    .timeline .event:before {
+        left: -11.5em;
+    }
+    .timeline .event:after {
+            left: -4.5em;
+    }
+    .timeline {
+        padding: 2em 0em 1.5em 4em;
+        margin: 1em 0em 0em 3em;  
+        
+    }
+
+    .job-infos {
+        left: -2.5em;
+        padding-right: 0;
+        width: 110%;
+        
+    }
+
+    .job-discription-list:last-child {
+        padding-bottom: 0.3em;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+    /*.job-detail > h2 {
+        font-size: 1.4em;  
+    }
+
+    .job-infos > h1 {
+        font-size: 1.0em;
+        letter-spacing: 1.6px;
+    }*/
+    #work {
+        height: 32em;
+    }
+    
+    
+}
+
+@media only screen and (max-width: 580px) {
+    .job-detail > h2 {
+        font-size: 1.1em;
+            
+    }
+
+    .job-infos > h1 {
+        font-size: 1.5em;
+
+        
+    }
+    #work {
+        height: 34em;
+    }
+    .job-infos {        
+        width: 115%;
+        
+    }
+    
+    
+}
+
+@media only screen and (max-width: 450px) {
+    .job-detail > h2 {
+        font-size: 0.9em;
+     
+    }
+
+    .job-infos > h1 {
+        font-size: 1.3em;
+        letter-spacing: 1.4px;
+    }
+    #work {
+        height: 33em;
+    }
+    .job-infos {        
+        width: 120%;
+        
+    }
+    
+}
+
+@media only screen and (max-width: 410px) {
+    .job-infos > h1 {
+        font-size: 1.2em;
+        
+    }
+    .job-infos {        
+        width: 125%;
+        
+    }
+    #work {
+        height: 32em;
+    }
+
+}
+
+@media only screen and (max-width: 396px) {
+    .job-infos > h1 {
+        font-size: 1.0em;
+        
+    }
+
+    .job-detail > h2 {
+        font-size: 0.8em;
+     
+    }
+
+    .job-infos {        
+        width: 135%;
+        
+    }
+    .resume {
+        flex-wrap: nowrap;
+    } 
+    
+    #work {
+        height: 30em;
+    }
+
+}
+
+@media only screen and (max-width: 360px) {
+    .job-infos > h1 {
+        font-size: 1.0em;
+        
+    }
+
+    .job-detail > h2 {
+        font-size: 0.8em;
+     
+    }
+
+    .job-infos {        
+        width: 150%;
+        
+    }
+        
+    #work {
+        height: 32em;
+    }
+
+    
+
+}
+
