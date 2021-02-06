@@ -1,0 +1,584 @@
+<!DOCTYPE HTML lang="nl">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Resume</title>
+<link rel="stylesheet" href="css/babylon_nl.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<script>
+    //show first job description on onload with fullscreen                   
+    window.onload = function firstJob() {        
+        spillCoffee();
+        if ( window.innerWidth > 750 ) {
+        
+            (job.className += " active");                      
+            job.style.maxHeight = "100%";                            
+        }
+
+        if ( window.innerWidth < 700 ) {
+            hWorkbox();                          
+        }                       
+    }
+</script>
+</head>
+<body>    
+    <nav>
+        <ul class="menu">
+            <li id="logo" class="logo">resume</li>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="#">About</a></li>
+            <li class="item has-submenu">
+                <a id="sub-resume" tabindex="0">Resume</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="/resume_en.htm">English</a></li>
+                    <li class="subitem"><a href="/resume_styler.html">Styler</a></li>
+                    <li class="subitem"><a href="#">Version</a></li>
+                    <li class="subitem"><a href="#">Version</a></li>
+                </ul>
+            </li>
+            <li class="item has-submenu">
+                <a id="sub-projects" tabindex="0">Projects</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="/clock.html">Clock</a></li>
+                    <li class="subitem"><a href="/blocks.html">Blocks</a></li>
+                    <li class="subitem"><a href="#">Project</a></li>
+                    <li class="subitem"><a href="#">Project</a></li>
+                </ul>
+            </li>
+            <li id="contactbutton"class="item button secondary"><a href="./files/Resume_nl.pdf" download target="_blank">PDF</a></li>
+            <li class="toggle"><a href="#"><i id="toggle" class="fas fa-bars"></i></a></li>
+        </ul>
+        <!-- script voor navigatie -->
+        <script>
+            const toggle = document.querySelector(".toggle");
+            const menu = document.querySelector(".menu");
+            const items = document.querySelectorAll(".item");
+
+            /* Toggle mobile menu */
+            function toggleMenu() {
+                if (menu.classList.contains("active")) {
+                    menu.classList.remove("active");
+                    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+                } else {
+                    menu.classList.add("active");
+                    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+                }
+            }
+
+            /* Activate Submenu */
+            function toggleItem() {
+                if (this.classList.contains("submenu-active")) {
+                    this.classList.remove("submenu-active");
+                } else if (menu.querySelector(".submenu-active")) {
+                    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+                    this.classList.add("submenu-active");
+                } else {
+                    this.classList.add("submenu-active");
+                }
+            }
+
+            /* Close Submenu From Anywhere */
+            function closeSubmenu(e) {
+            let isClickInside = menu.contains(e.target);
+
+                if (!isClickInside && menu.querySelector(".submenu-active")) {
+                    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+                
+                }
+            }
+
+            /* Event Listeners */
+            toggle.addEventListener("click", toggleMenu, false);
+                for (let item of items) {
+                    if (item.querySelector(".submenu")) {
+                        item.addEventListener("click", toggleItem, false);
+                    }
+                    item.addEventListener("keypress", toggleItem, false);
+                }
+            document.addEventListener("click", closeSubmenu, false);
+        </script>
+    </nav>
+    <main class="wrapper">        
+        <article class="resume">
+            <section class="grid-area" id="name">
+                <span class="grid-title">Gwen Van Laere</span><br><hr>
+                <div class="name-box">
+                    <p><span id="hello">Hello world<span class="letters" data-letter="!">!</span></span></p>
+                    <p>Mijn naam is <span>Gwen</span> en ik ben geboren en getogen in West-Vlaanderen. Ik ben ongehuwd, heb geen kinderen en ik geniet optimaal van deze vrijheid. 
+                    Ik heb een tijdje in <span id="hrvatska">Kroatië</span> gewoond. 
+                    Het land fascineerde mij en h<span class="letters" data-letter="e1">e</span>t was altijd al mijn favoriete reis&shy;be&shy;stemming. Dit <span>avontuur</span> heeft mij enorm verrijkt en op veel vlakken sterker gemaakt. In ieder geval heeft het mij een beter inzicht gegeven in wat ik precies verwacht van het leven.</p> 
+                    <p>Ik heb destijds handels&shy;weten&shy;schap&shy;pen ge&shy;stu&shy;deerd en het curri&shy;culum dat ik heb door&shy;lopen heeft gere&shy;sul&shy;teerd in een <span>cogni&shy;tieve en rationele</span> gedachten&shy;gang. S<span class="letters" data-letter="o">o</span>mmige dingen die ik niet op school 
+                    leerde - zoals <span>people skills</span> - heb ik zelf ontwikkeld door mijn comfort zone te verlaten, nieuwe mensen te ont&shy;moeten en met een open geest 
+                    tegenover de uitdagingen des levens te staan... Ik hou dan ook heel erg van reizen en het lie<span class="letters" data-letter="f2">f</span>st doe ik dat à l'improviste met 
+                    mijn <span id="oldtimer">oldtimer</span> busje.</p> 
+                    <p>Zei iemand ontwikkelen? De laatste tijd gaat mijn interesse uit naar <span>web development & program&shy;ming</span> en ik heb inmiddels verschil&shy;lende opleidingen afgewerkt.
+                    Mijn <span class="letters" data-letter="c">c</span>redo is dat je nooit teveel kan bijleren in onze immer veran&shy;derende wereld. Deze s<span class="letters" data-letter="e2">e</span>ctor is daar eigenlijk het levende voorbeeld van en ik ben er zeker van dat het een li<span class="letters" data-letter="f1">f</span>e-changer kan zijn voor mezelf.
+                    In een ideale wereld zou ik een job vinden die alle bovenstaande aspecten herbergt.</p> 
+                    <p id="meet-up">Dit gezegd zijnde... Let's have a 
+                        <span class="coffees" data-letter="c">c</span
+                        ><span class="coffees" data-letter="o">o</span
+                        ><span class="coffees" data-letter="f1">f</span
+                        ><span class="coffees" data-letter="f2">f</span
+                        ><span class="coffees" data-letter="e1">e</span
+                        ><span class="coffees" data-letter="e2">e</span
+                        ><span class="coffees" data-letter="!">!</span>
+                    </p><br>
+                </div> 
+            </section>
+                <script>
+
+                    // animeer tekst (class active) wanneer volledig doorgescrolled
+                    const letters = document.querySelectorAll('.letters');
+                    const coffees = document.querySelectorAll('.coffees');
+                    const nameBox = document.querySelector('.name-box');
+                    const meetUp = document.querySelector('#meet-up');
+                    const ob = new IntersectionObserver(letsMeet, {
+                        root: meetUp,
+                        threshold: 0.5
+                    });
+
+                    function letsMeet(payload) {
+                        if(payload[0].isIntersecting) {
+                            
+                            coffees.forEach((coffee, i) => {
+                            setTimeout  (() => {
+                            coffee.classList.add('active');
+                            coffee.style.left = "0";
+                            coffee.style.top = "0"; 
+                            }, 300 * i);                                              
+                            
+                        });
+                        }
+                        else {
+                            coffees.forEach(coffee => { coffee.classList.remove('active'); });
+                            spillCoffee();
+                        } 
+                    }                   
+
+                    ob.observe(meetUp);
+                    
+                    // find matches and spillCoffee
+                    function spillCoffee() {
+                        
+                        for(let i = 0; i < letters.length; i++) {  
+                                                    
+                            datLetter = letters[i].dataset.letter;                                                    
+                            for(let j = 0; j < coffees.length; j++) {
+                                
+                                datCoffee = coffees[j].dataset.letter;
+                                if(datLetter === datCoffee) { 
+                                    // positiebepaling ten opzichte van nameBox ()
+                                    let colRan = Math.floor(Math.random() * 100);
+                                    x1 = letters[i].offsetLeft;
+                                    y1 = letters[i].offsetTop;
+                                    x2 = coffees[j].offsetLeft;
+                                    y2 = coffees[j].offsetTop;
+                                    
+                                    tlX = x2 - x1;
+                                    tlY = y2 - y1;
+                                    
+                                    coffees[j].style.left = `${-tlX}px`; 
+                                    coffees[j].style.top = `${-tlY}px`;
+                                   
+                                }             
+                            }
+                        }
+                    }  
+                    // function for when window is resized => observer
+                    function restart() {
+                        coffees.forEach(coffee => {                                
+                                coffee.style.left = "0";
+                                coffee.style.top = "0";
+                        });
+                        spillCoffee();
+                    };
+                    
+                    const reOb = new ResizeObserver(entries => {
+                        if(coffees[0].classList.contains('active')) {return;}
+                        else { debounce(restart()); }
+                            
+                    }); 
+
+                    reOb.observe(nameBox);                   
+            </script>            
+            <section class="grid-area" id="photo">                
+                <div class="photo-box">
+                    <div class="circle" id="circle">
+                        <img id="profile-picture" alt="profielfoto" src="img/profile_1.jpg">
+                        <img id="bus" alt="toyota campervan busje" src="img/bus.jpg">
+                        <img id="croatia" alt="Kroatië" src="img/HR1.jpg">
+                    </div>
+                    <!-- script voor images -->
+                    <script>
+                        const images = document.querySelectorAll(".circle > img")
+                        //console.log(images);
+                        const oldtimer = document.querySelector('#oldtimer'); 
+                        const busPic = document.querySelector('#bus'); 
+                        const croatiaPic = document.querySelector('#croatia'); 
+                        const hrvatska = document.querySelector('#hrvatska'); 
+                        const profilePic = document.getElementById('profile-picture');                        
+                        oldtimer.addEventListener('mouseenter', function() {showPic(busPic);});
+                        oldtimer.addEventListener('mouseleave', function() {hidePic();});  
+                        hrvatska.addEventListener('mouseenter', function() {showPic(croatiaPic);});
+                        hrvatska.addEventListener('mouseleave', function() {hidePic();});                               
+                        
+                        function showPic(img) {                            
+                            images.forEach(image => image.style.opacity = 0);
+                            img.style.opacity = 1;
+                            event.target.style.color = "rgb(147, 142, 142)";
+                                                                                             
+                        }                         
+                        function hidePic() { 
+                            images.forEach(image => image.style.opacity = 0);
+                            profilePic.style.opacity = 1;
+                            event.target.style.color = "rgb(94, 91, 91)";
+                        } 
+                        
+                    </script>
+                </div>
+            </section>
+            <section class="grid-area" id="about">
+                <span class="grid-title">mijn gegevens</span><br>
+                <hr>
+                <div class="about-box">
+                    <h5 class="about-title">geboortedatum</h5>
+                    <p class="about-text">15 april 1984</p>
+                    <h5 class="about-title">adres</h5>
+                    <p class="about-text">Geluwe, België</p>
+                    <h5 class="about-title">nationaliteit</h5>
+                    <p class="about-text">Belg</p>
+                    <h5 class="about-title">gsm</h5>
+                    <p class="about-text">+32(0)468172420</p>
+                    <h5 class="about-title">e-mail</h5>
+                    <p class="about-text">gwen_van_laere&#64;hotmail.com</p>
+                </div>
+            </section>
+            <section class="grid-area" id="work">
+                <span class="grid-title">ervaringen</span><br>
+                <hr>
+                <div id="work-box" class="work-box">
+                    <ul id="timeline" class="timeline">
+                        <li class="event" data-date="2020">
+                            <div class="job-infos">
+                                <h1 id="first-job" class="job-title">Editor / Web Developer</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Daily Croatia</span>, Zagreb (KR)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Proofreading / editing van nieuwsartikels</li>
+                                            <li>SEO-geoptimaliseerde content schrijven</li>
+                                            <li>Onderhoud website met behulp van <span>WordPress</span> en <span>Datawrapper</span></li>
+                                            <li>Work flows en homepage aanpassen en verbeteren</li>
+                                            <li>Strategie uitwerken voor groei en promotie</li>
+                                            <li class="company">Daily Croatia is een online nieuws & media portaal gerelateerd aan Kroatië voor Engelse lezers</li>
+                                            <li class="employer-website"><a href="https://dailycroatia.com/" target="_blank">Homepagina</a></li>
+                                        </ul>
+                                    </div>
+                                </div>            
+                            </div>
+                        </li>
+                        <li class="event" data-date="2019">
+                            <div class="job-infos">
+                                <h1 class="job-title">Customer Care Specialist</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Q Experience</span>, Zagreb (KR)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Customer support voor de Nederlandse markt met <span>Salesforce</span></li>
+                                            <li>De cliënt vertegenwoordigen via telefoon, e-mail en social media kanalen</li>
+                                            <li>Interne databank updaten</li>
+                                            <li class="company">Q Experience is een BPO organisatie dat customer support verleent in opdracht van online bedrijven</li>
+                                            <li class="employer-website"><a href="https://q-xperience.com/" target="_blank">Homepagina</a></li>
+                                        </ul>
+                                    </div>
+                                </div>    
+                            </div>
+                        </li>
+                        <li class="event" data-date="2018">
+                            <div class="job-infos">
+                                <h1 class="job-title">Vendor / Seller</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Rock & Rule</span>, Kortrijk (BE)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Verkoopsgerichte werkkracht voor non-food producten op markten en evenementen</li>
+                                            <li>Europa doorkruisen en frameworks opzetten</li>
+                                            <li>Internationale context: Slovenië - Duitsland - Tsjechië - Nederland</li>
+                                            <li class="company">Rock & Rule verkoopt non-food artikelen op markten en evenementen in Europa</li>
+                                        </ul>
+                                    </div>
+                                </div>    
+                            </div>                    
+                        </li>
+                        <li class="event" data-date="2011">
+                            <div class="job-infos">
+                                <h1 class="job-title">Webcontent Manager</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Cebeo</span>, Waregem (BE)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Content onderhouden van de website met meer dan een miljoen producten</li>
+                                            <li>Bulk import door middel van grote DBF/CSV-bestanden in Excel</li>
+                                            <li>Data classification volgens de <span></span>ETIM</span> standaard</li>
+                                            <li>Aanmaken en coderen van nieuwe artikelen in de database</li>
+                                            <li>Data-analyse en export van en uit het systeem</li>
+                                            <li class="company">Cebeo is marktleider als groothandel van elektrisch en elektrotechnisch materiaal in België</li>
+                                            <li class="employer-website"><a href="https://www.cebeo.be/" target="_blank">Homepagina</a></li>
+                                        </ul>
+                                    </div> 
+                                </div>                                                              
+                            </div>
+                        </li>
+                        <li class="event" data-date="2010">
+                            <div class="job-infos">
+                                <h1 class="job-title">Stage</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Ethicom</span>, Ghent (BE)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Strategieën uitwerken voor fondsenwerving</li>
+                                            <li>Advies verlenen voor NGO management en communicatie</li>
+                                            <li>Marktonderzoek / krantenknipsels verzamelen</li>
+                                            <li>Notuleren in meetings</li>
+                                            <li class="company">Ethicom is een adviesbureau voor NGO's dat is gespecialiseerd in fondsenwerving, management and communicatie</li>
+                                        </ul>
+                                    </div> 
+                                </div>  
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- script voor work section / transition timeline mobile -->
+                <script type="text/javascript">                    
+                    //function for opening list-item when clicked on                    
+                    var coll = document.getElementsByClassName("job-title");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                    coll[i].onclick = function () {
+                        var active = document.getElementsByClassName("active");
+                        if (active.length && active[0] !== this) {
+                        active[0].classList.remove("active");
+                        }
+                        this.classList.toggle("active");
+                    };                                        
+                    }
+                    
+                    //collapse all items when clicked outside work section
+                    function hideAll() {
+                        for (i = 0; i < coll.length; i++) {
+                            coll[i].classList.toggle("active", false);
+                            coll[i].nextElementSibling.style.maxHeight = null;
+                        }
+                    }
+                    var timeline = document.getElementById("timeline");
+                    window.addEventListener('click', function(e){   
+                        if (!timeline.contains(e.target)) {
+                            hideAll();
+                        }
+                    });
+
+                     //transition function timeline
+                    var timeline = document.getElementById("timeline");
+                    var eEvent = document.getElementsByClassName("event");
+                    timeline.onclick = function() {
+                        
+                        window.addEventListener('click', function(e) { 
+
+                            if (timeline.contains(e.target) && ( window.innerWidth < 700 )) {
+                                timeline.classList.add("transition--shown");
+                            
+                                for (var i = (eEvent.length - 1); i >= 0; i--)
+                                eEvent[i].classList.add("transition--shown");                                    
+                            }
+                    
+                            else {
+                                timeline.classList.remove("transition--shown");                                    
+                                for (var i = (eEvent.length - 1); i >= 0; i--)
+                                eEvent[i].classList.remove("transition--shown");                                    
+                            }
+                        });                        
+                    };
+
+                    //get the appropriate mode for timeline transition when window gets resized, by clicking outside of target 
+                    window.onresize = function () {
+                        
+                        if ( window.innerWidth > 900 ) {
+                            
+                            document.getElementById("logo").click();
+                            document.getElementById("first-job").click();
+                        }
+
+                        else {
+                            document.getElementById("logo").click();
+                        }
+                    }
+
+                    var job = document.getElementById("first-job");
+                    var nex = document.getElementsByClassName("job-detail"); 
+                    
+                    // adapt height of workbox to height of Timeline except for fullscreen
+                    var hTimeline = document.getElementById("timeline").clientHeight;
+                    
+                    function hWorkbox() {
+
+                        document.getElementById('work-box').style.height = ( hTimeline * 1.12 ) + "px";                         
+                    }                   
+
+                </script>
+            </section>
+            <section class="grid-area" id="education">
+                <span class="grid-title">opleiding</span><br>
+                <hr>
+                <div class="education-box">                    
+                    <h2 class="degree1">Master in de Handels-<wbr>wetenschappen</h2>
+                    <h3 class="degree2">Optie marketingmanagement</h3>
+                    <p class="school">Universiteit Gent</p>
+                    <p class="school-location">Gent</p>
+                    <hr>
+                    <h2 class="degree1">Secundair onderwijs</h2>
+                    <h3 class="degree2">economie & moderne talen</h3>
+                    <p class="school">Sint-Aloysiuscollege Menen</p>
+                    <p class="school-location">Menen</p>
+                </div>
+            </section>
+            <section class="grid-area" id="skills">
+                <span class="grid-title">competenties</span><br>
+                <hr>
+                <div class="skills-box">
+                    <div role="tablist" aria-label="skillset" class="skills-tab" tabindex="0">
+                        <button role="tab" aria-selected="true" id="soft-skill" class="skill-button" onclick="showTabs(event, 'soft')">soft</button>
+                        <button role="tab" aria-selected="false" class="skill-button" onclick="showTabs(event, 'hard')">hard</button>
+                        <button role="tab" aria-selected="false" class="skill-button" onclick="showTabs(event, 'certificates')">files</button>
+                    </div>                    
+                    <div role="tabpanel" aria-labelledby="soft skills" id="soft" class="skill-div">
+                        <h3>soft</h3>
+                        <ul>
+                            <li>flexibel</li>
+                            <li>analy&shy;tisch</li>
+                            <li>pro-&shy;actief</li>
+                            <li>zelf&shy;standig</li>
+                            <li>punc&shy;tueel</li>
+                            <li>team&shy;speler</li>
+                            <li>zelf&shy;bewust</li>
+                            <li>communi&shy;catief</li>
+                            <li>oplossings&shy;gericht</li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="hard skills" id="hard" class="skill-div" hidden>
+                        <h3>hard</h3>
+                        <ul id="studied">
+                            <li>Office</li>
+                            <li>HTML5</li>
+                            <li>JavaScript</li>
+                            <li>CSS3</li>
+                            <li>WordPress</li>
+                            <li>PHP</li>
+                            <li>SQL</li> 
+                            <li>jQuery</li>                           
+                            <li class="filler"><span class="fill">DONE</span><span class="fill">TO DO</span></li>                            
+                            <li class="ambition">Python</li>
+                            <li class="ambition">React</li>
+                            <li class="ambition">Node.js</li>   
+                            <li class="ambition">Sass</li>                         
+                        </ul>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="certificates" id="certificates" class="skill-div" hidden>
+                        <br><p>Attesten (<span>downloads</span>)</p>
+                        <ul>
+                            <li><a href="./files/HTML5.pdf" download target="_blank">HTML5</a></li>
+                            <li><a href="./files/CSS3.pdf" download target="_blank">CSS3</a></li>
+                            <li><a href="./files/JavaScript.pdf" download target="_blank">JavaScript</a></li>
+                            <li><a href="./files/HTML-CSS Projects.pdf" download target="_blank">Projecten</a></li>    
+                            <li><a href="./files/PHP.pdf" download target="_blank">PHP</a></li>   
+                            <li><a href="./files/SQL.pdf" download target="_blank">SQL</a></li>    
+                            <li><a href="./files/jQuery.pdf" download target="_blank">jQuery</a></li>                         
+                        </ul>
+                    </div>                    
+                </div>
+                <!-- script voor tabbladen -->
+                <script>              
+                    function showTabs(event, info) {
+                        let i, contents, links;
+
+                        contents = document.querySelectorAll(".skill-div");
+                        links = document.querySelectorAll(".skill-button");
+                            contents.forEach(content => { content.style.display = "none"; });                        
+                            links.forEach(link => { link.className.replace(" active", ""); });
+
+                        // info = id van tabblad werd doorgegeven door onclick functie samen met event
+                        document.getElementById(info).style.display = "block";
+                            event.currentTarget.className += " active";                       
+                    }                     
+                </script>
+            </section>
+            <section class="grid-area" id="languages">
+                <span class="grid-title">talenkennis</span><br>
+                <hr>
+                <div class="language-box">
+                    <li><p>nederlands</p><span class="language-bar"><span id="dutch"></span></span></li>                
+                    <li><p>engels</p><span class="language-bar"><span id="english"></span></span></li>                    
+                    <li><p>frans</p><span class="language-bar"><span id="french"></span></span></li>                    
+                    <li><p>duits</p><span class="language-bar"><span id="german"></span></span></li>                    
+                    <li><p>kroatisch</p><span class="language-bar"><span id="croatian"></span></span></li>                   
+                </div>
+            </section>
+        </article>            
+    </main>
+    <footer><div></div></footer>
+    <!-- script voor mobile scroll -->
+    <script>
+        //debounce function prevents from logging too much scroll events (=> every 20ms)
+        function debounce(func, wait = 20, immediate = true) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if(!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if(callNow) func.apply(context, args);
+            };
+        };
+        
+        const sections = document.querySelectorAll('section'); 
+            
+        function checkSlide(e) {
+            sections.forEach(section => {
+                // halfway through section                
+                const slideInAt = (window.scrollY + window.innerHeight) - section.offsetHeight / 2;            
+                // bottom of the section (aangepast: / 2)
+                const sectionBottom = section.offsetTop + section.offsetHeight / 2;
+                const isHalfShown = slideInAt > section.offsetTop;
+                const isNotScrolledPast = window.scrollY < sectionBottom;
+                if(isHalfShown && isNotScrolledPast) {
+                    section.classList.add('active');
+                    //section.style.transition = "opacity 1s ease-in";                    
+                }
+                else {                    
+                    section.classList.remove('active');
+                    //section.style.transition = "opacity 1s ease-in"; 
+                }
+            });
+        }
+        // enkel voor window.innerwidth < 700px
+        if(window.innerWidth < 700) {
+            window.addEventListener('scroll', debounce(checkSlide));
+
+        }
+        window.onresize = function() {
+            if(window.innerWidth < 700) {
+                window.addEventListener('scroll', debounce(checkSlide));                
+            }     
+        } 
+    
+    </script>   
+</body>
+</html>
+
