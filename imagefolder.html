@@ -1,0 +1,45 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/imagefolder.css" />
+        <title>Image folder</title>
+    </head>
+    <body>
+        <div class="imgBx">
+            <input type="checkbox" name="checkbox" id="pics" />
+            <span class="bg1"></span>
+            <span class="bg2"></span>
+            <div class="bg"></div>
+        </div>
+    </body>
+    <script>
+        /* werkt voor images van 960 x 720
+            :root {
+                --background1: url(../img/img1.jpg);
+                --background2: url(../img/img2.jpg);
+            } */
+
+        // backface visibility bug in Firefox is vdK!!
+        // 3d transform is not accurate, so correction translateX of the right side of bg2
+        const bg2 = document.querySelector('.bg2');
+        navigator.userAgent.includes('Firefox') ? (bg2.style.transform = 'translateX(-0.5px)') : null;
+        // select css variables on root element
+        const root = document.documentElement;
+        const checkbox = document.querySelector('#pics');
+        checkbox.addEventListener('click', changeImage);
+
+        function changeImage() {
+            let random = Math.ceil(Math.random() * 27);
+            if (checkbox.checked === true) {
+                root.style.setProperty('--background1', `url(../img/img${random}.jpg)`);
+            } else {
+                root.style.setProperty('--background2', `url(../img/img${random}.jpg)`);
+            }
+        }
+    </script>
+</html>
