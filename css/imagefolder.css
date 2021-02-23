@@ -1,0 +1,113 @@
+/** @format */
+/* werkt voor images van 960 x 720 */
+:root {
+    --background1: url(../img/img1.jpg);
+    --background2: url(../img/img2.jpg);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(63, 63, 63);
+}
+
+#btn {
+    z-index: 100;
+}
+.imgBx {
+    width: 480px;
+    height: 360px;
+    background: transparent;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.imgBx input[type='checkbox'] {
+    position: relative;
+    width: 480px;
+    height: 360px;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+span {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+span.bg1 {
+    left: 0;
+    background: var(--background1);
+    background-size: cover;
+}
+span.bg1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background2);
+    background-size: cover;
+    transform-origin: right;
+    transition: transform 2s;
+    backface-visibility: hidden;
+}
+
+.imgBx input[type='checkbox']:checked ~ span.bg1::before {
+    transform: rotateY(180deg);
+}
+span.bg2 {
+    right: 0px;
+    background: var(--background2);
+    background-position-x: 100%;
+    background-size: cover;
+    backface-visibility: hidden;
+}
+span.bg2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background1);
+    background-size: cover;
+    background-position-x: 100%;
+    transform-origin: left;
+    transition: transform 2s;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.imgBx input[type='checkbox']:checked ~ span.bg2::before {
+    transform: rotateY(360deg);
+}
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: 2s;
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.5), 0 0 0 800px #1598d4;
+    pointer-events: none;
+}
+.imgBx input[type='checkbox']:checked ~ .bg {
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.5), 0 0 0 800px #387736;
+}
