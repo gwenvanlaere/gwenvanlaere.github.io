@@ -475,7 +475,7 @@ main {
 [name='folder']:checked + label::after {
     box-shadow: 0 0px 1px 1px var(--boxLineColor), 0 0 8px 3px var(--boxLineColor);
     border: 2px solid var(--boxLineColor);
-    outline: 1px solid currentColor;
+    /*outline: 1px solid currentColor;*/
 }
 
 [data-layout='All folders'] {
@@ -976,7 +976,7 @@ aside > .filters {
     top: 0;
     bottom: 0;
     cursor: context-menu;
-    text-align: right;
+    /*text-align: right;*/
 }
 .select > li:not(:nth-of-type(1)) > a::after {
     content: ' ' attr(data-count);
