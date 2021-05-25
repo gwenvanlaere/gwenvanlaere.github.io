@@ -1,0 +1,204 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <script src='./js/audioplayer.js' defer></script>       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>        
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="./css/audioplayermerge.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <title>Audioplayer</title> 
+    </head>
+    <body>     
+        <!-- ================================== start wrapper ======================================= -->        
+        <div class="wrapper">
+            <header>
+                <div class="smallSearch">
+                    <input type="text" name="artists" id="artists" placeholder="Artists" />
+                    <ul class="artistList"></ul>
+                    <input type="text" name="labels" id="labels" placeholder="Labels" />
+                    <ul class="labelList"></ul>
+                </div>
+                <div id="searchBar">
+                    <input
+                        type="search"
+                        autocomplete="off"
+                        name="searchBar"
+                        id="searchInput"
+                        placeholder="search for artist"
+                    />                    
+                    <button type="button" id="searchButton"><span class="search-icon">&#9906;</span></button>
+                </div>
+                <div class="loggingDisplay">
+                    <div class="loggingButtons">
+                        <button type="button" id="showAllLoggingBtn" title="Show all logs">...</button>
+                        <button type="button" id="slideLoggingMenuBtn" title="Logging console">&#8628;</button>
+                    </div>
+                    <ul id="loggingList">                        
+                    </ul> 
+                    <ul id="logAllList"></ul>                                    
+                </div>
+            </header>
+            <main class="container">
+                <!-- start zoekvelden aside -->
+                <aside>
+                    <div class="filterHeader"></div>
+                    <div class="filters">
+                        <ul role="listbox" class="select genre" data-name="genre" aria-labelledby="listbox1label">
+                            <li data-value="default" class="selected" aria-selected="true">Genre</li>
+                        </ul>
+                        <ul role="listbox" class="select bpm" data-name="bpm" aria-labelledby="listbox1label">
+                            <li data-value="default" class="selected" aria-selected="true">BPM</li>
+                        </ul>
+                        <ul role="listbox" class="select key" data-name="initialkey" aria-labelledby="listbox1label">
+                            <li data-value="default" class="selected" aria-selected="true">Key</li>
+                        </ul>
+                        <ul role="listbox" class="select year" data-name="year" aria-labelledby="listbox1label">
+                            <li data-value="default" class="selected" aria-selected="true">Year</li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- einde zoekvelden aside -->
+                <!-- start main search -->
+                <section class="search-wrapper">
+                    <div class="searchHeader">
+                        <p class="matches"></p>
+                        <form action="" id="folderButtons">
+                            <input type="radio" name="folder" value="" checked="checked" id="allFolders" />
+                            <label for="allFolders" data-layout="All folders"></label>
+                            <input type="radio" name="folder" value="beatport" id="beatportFolder" />
+                            <label for="beatportFolder" data-layout="beatport"></label>
+                            <input type="radio" name="folder" value="black" id="blackFolder" />
+                            <label for="blackFolder" data-layout="black"></label>
+                            <input type="radio" name="folder" value="blue" id="blueFolder" />
+                            <label for="blueFolder" data-layout="blue"></label>
+                            <input type="radio" name="folder" value="gold" id="goldFolder" />
+                            <label for="goldFolder" data-layout="gold"></label>
+                            <input type="radio" name="folder" value="grey" id="greyFolder" />
+                            <label for="greyFolder" data-layout="grey"></label>
+                            <input type="radio" name="folder" value="red" id="redFolder" />
+                            <label for="redFolder" data-layout="red"></label>
+                            <input type="radio" name="folder" value="willies" id="williesFolder" />
+                            <label for="williesFolder" data-layout="willies"></label>
+                            <input type="radio" name="folder" value="green" id="greenFolder" />
+                            <label for="greenFolder" data-layout="green"></label>                            
+                        </form>
+                        <div class="matchButtons">
+                            <button id="folders" title="update cover art">?</button>
+                            <button type="button" id="addAll" title="add all to playlist">Add All</button>
+                            <button type="button" id="clearSearches" title="clear searches">Show All</button>
+                        </div>
+                    </div>
+                    <ul id="songlist"></ul>
+                    <div id="showCover" class="popup">
+                        <img id="coverLarge" src="./covers/MLiR - People_Front Cover.jpg" alt="Problem loading cover art"><span id="hideCover" title="Close">x</span>
+                    </div>
+                    <div id="loader" class="popup"><span>Loading...</span></div>
+                </section>
+                <!-- einde main search -->
+                <!-- start playlist -->
+                <section class="playlist-wrapper">
+                    <div class="playlistHeader">
+                        <button type="button" id="createPlaylist" class="createPlaylist" title="create new playlist">Create                            
+                            <input type="text" id="playlistInput" class="playlistInput" placeholder="Enter playlist name">                            
+                        </button>                           
+                        <ul id="allPlaylists">
+                        </ul>
+                    </div>
+                    <div class="playlistButtons">
+                        <button type="button" id="showPlaylist" title="show / hide playlists">Playlists</button>
+                        <button type="button" id="currentPlaylist" title="show current playlist">Current</button>
+                        <button type="button" id="clearPlaylist" title="clear playlist">Clear</button>                        
+                        <p class="sizePlaylist">0 tracks</p>
+                    </div>
+                    <ul id="playlist"></ul>                    
+                </section>
+                <!-- einde playlist -->
+            </main>
+            <footer>
+                <!-- start audioplayer -->
+                <div class="audioplayer">
+                    <div class="playerLeft">                        
+                        <ul class="infoList"></ul>
+                    </div>
+                    <div class="playerCenter">
+                        <div id="audio-player-container">
+                            <audio src="" preload="”metadata”"></audio>
+                            <div class="audio-cd">
+                                <input type="range" id="seek-slider" max="100" value="0" />
+                            </div>
+                            <div class="audio-left">
+                                <div class="audio-left-left">
+                                    <button id="repeat-button" title="repeat">
+                                        <span class="material-icons left"> repeat </span
+                                        ><!-- repeat -->
+                                    </button>
+                                    <button id="previous-button" title="previous">
+                                        <span class="material-icons left"> skip_previous </span
+                                        ><!-- previous -->
+                                    </button>
+                                    <button id="seek-back-button" title="seek-back">
+                                        <span class="material-icons left"> fast_rewind </span
+                                        ><!-- seek-back -->
+                                    </button>
+                                </div>
+                                <div class="audio-left-center">
+                                    <div class="audio-volume">
+                                        <div class="audio-cover">
+                                            <button id="play-button" title="play pause">
+                                                <span class="material-icons"> play_arrow </span>                                                
+                                            <!-- play / pause -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="audio-left-right">
+                                    <button id="shuffle-button" title="shuffle">
+                                        <span class="material-icons right"> shuffle </span
+                                        ><!-- shuffle -->
+                                    </button>
+                                    <button id="next-button" title="next">
+                                        <span class="material-icons right"> skip_next </span
+                                        ><!-- next -->
+                                    </button>
+                                    <button id="seek-forward-button" title="seek forward">
+                                        <span class="material-icons right"> fast_forward </span
+                                        ><!-- seek-forward -->
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="audio-display">
+                                <div class="audio-freq-container">
+                                    <div class="audio-freq-left"></div>
+                                    <div class="audio-freq-right">
+                                        <span id="current-time" class="time">0:00</span>
+                                        <span id="duration" class="time">0:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="audio-down">
+                                <div id="info-slider">MLiR - People (Original Mix)</div>
+                                <div id="info-slider2">MLiR - People (Original Mix)</div>
+                            </div>
+                            <div class="audio-right">
+                                <p>Mute</p>
+                                <button id="mute-button" title="mute">
+                                    <span class="material-icons">volume_up</span>                                   
+                                </button>
+                                <p>Volume</p>
+                                <span class="outputSpan"><output id="volume-output" title="volume">50</output></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playerRight">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+                <!-- einde audioplayer -->
+            </footer>
+        </div>
+        <!-- =================================== end wrapper ======================================== -->        
+    </body>
+</html>
