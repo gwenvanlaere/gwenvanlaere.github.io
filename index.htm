@@ -1,0 +1,372 @@
+<!DOCTYPE HTML lang="nl">
+<html>
+<head>
+    <script src="./js/gsap.min.js"></script>
+    <script src="./js/MorphSVGPlugin.min.js"></script>
+    <script src="./js/resume.js" defer></script>
+<link rel="stylesheet" href="css/babylon_nl.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Resume</title>
+<!-- window onload script -->
+</head>
+<body>    
+    <nav class="navigation">
+        <ul class="menu">
+            <li class="logo" id="logo"><span id="logo-span">resume</span></li>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="#">About</a></li>
+            <li class="item has-submenu">
+                <a id="sub-resume" tabindex="0">Resume</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="/resume_en.htm">English</a></li>
+                    <li class="subitem"><a href="/resume_styler.html">Styler</a></li>
+                    <li class="subitem"><a href="#">Version</a></li>
+                    <li class="subitem"><a href="#">Version</a></li>
+                </ul>
+            </li>
+            <li class="item has-submenu">
+                <a id="sub-projects" tabindex="0">Projects</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="/clock.html">Clock</a></li>
+                    <li class="subitem"><a href="/blocks.html">Blocks</a></li>                    
+                    <li class="subitem"><a href="/imagefolder.html">Folder</a></li>
+                    <li class="subitem"><a href="/audioplayer.html">Player</a></li>
+                </ul>
+            </li>
+            <li id="contactbutton"class="item button secondary"><a href="./files/Resume_nl.pdf" download target="_blank">PDF</a></li>
+            <li class="toggle-list" tabindex="1">
+                <span id="hambi-box" class="toggle" tabindex="1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10mm" height="10mm" viewBox="0 0 10 10" id="svg-hambi">
+                        <g id="svg-group">
+                        <path                        
+                            id="path10"
+                            d="M9.26042,2.51354 C9.26042,2.60174 9.26042,2.68993 9.26042,2.77813 9.26042,3.07038 9.0235,3.30729 8.73125,3.30729 6.43819,3.30729 4.14514,3.30729 1.85208,3.30729 1.55983,3.30729 1.32292,3.07038 1.32292,2.77813 1.32292,2.68993 1.32292,2.60174 1.32292,2.51354 1.32292,2.22129 1.55983,1.98438 1.85208,1.98438 4.14514,1.98438 6.43819,1.98438 8.73125,1.98438 9.0235,1.98438 9.26042,2.22129 9.26042,2.51354 z"
+                            filter="url(#A)"
+                        />
+                        <path                        
+                            id="path20"
+                            d="M9.26042,5.15938 C9.26042,5.24757 9.26042,5.33576 9.26042,5.42396 9.26042,5.71621 9.0235,5.95313 8.73125,5.95313 6.43819,5.95313 4.14514,5.95313 1.85208,5.95313 1.55983,5.95313 1.32292,5.71621 1.32292,5.42396 1.32292,5.33576 1.32292,5.24757 1.32292,5.15938 1.32292,4.86712 1.55983,4.63021 1.85208,4.63021 4.14514,4.63021 6.43819,4.63021 8.73125,4.63021 9.0235,4.63021 9.26042,4.86712 9.26042,5.15938 z"
+                            filter="url(#A)"
+                        />
+                        <path                        
+                            id="path21"
+                            d="M9.26042,5.15938 C9.26042,5.24757 9.26042,5.33576 9.26042,5.42396 9.26042,5.71621 9.0235,5.95313 8.73125,5.95313 6.43819,5.95313 4.14514,5.95313 1.85208,5.95313 1.55983,5.95313 1.32292,5.71621 1.32292,5.42396 1.32292,5.33576 1.32292,5.24757 1.32292,5.15938 1.32292,4.86712 1.55983,4.63021 1.85208,4.63021 4.14514,4.63021 6.43819,4.63021 8.73125,4.63021 9.0235,4.63021 9.26042,4.86712 9.26042,5.15938 z"
+                            filter="url(#A)"
+                        />
+                        <path                        
+                            id="path30"
+                            d="M9.26042,7.80521 C9.26042,7.8934 9.26042,7.9816 9.26042,8.06979 9.26042,8.36204 9.0235,8.59896 8.73125,8.59896 6.43819,8.59896 4.14514,8.59896 1.85208,8.59896 1.55983,8.59896 1.32292,8.36204 1.32292,8.06979 1.32292,7.9816 1.32292,7.8934 1.32292,7.80521 1.32292,7.51296 1.55983,7.27604 1.85208,7.27604 4.14514,7.27604 6.43819,7.27604 8.73125,7.27604 9.0235,7.27604 9.26042,7.51296 9.26042,7.80521 z"
+                            filter="url(#A)"
+                        />
+                    </g>
+                        <defs>
+                            <filter id="A">
+                                <feDropShadow dx="-0.13" dy="0.2" stdDeviation="0.1" flood-color="black" />
+                            </filter>
+                            <radialGradient id="myGradient">
+                                <stop offset="0%" stop-color="rgb(58, 184, 244)" />
+                                <stop offset="40%" stop-color="rgb(58, 184, 244)" />
+                            </radialGradient>
+                            <linearGradient id="myGradient2" gradientTransform="rotate(90)">
+                                <stop offset="20%" stop-color="gold" />
+                                <stop offset="90%" stop-color="red" />
+                            </linearGradient>
+                            <!-- hamburgermenu tussenstop paths C2 -->
+                            <path
+                                id="npath10"
+                                d="M9.26042,1.59475 C9.26042,1.85933 9.26042,2.12391 9.26042,2.3885 9.26042,2.53462 9.14196,2.65308 8.99583,2.65308 8.73125,2.65308 8.46667,2.65308 8.20208,2.65308 8.05596,2.65308 7.9375,2.53462 7.9375,2.3885 7.9375,2.12391 7.9375,1.85933 7.9375,1.59475 7.9375,1.44862 8.05596,1.33016 8.20208,1.33016 8.46667,1.33016 8.73125,1.33016 8.99583,1.33016 9.14196,1.33016 9.26042,1.44862 9.26042,1.59475 z"
+                            />
+                            <path
+                                id="npath20"
+                                d="M5.95312,4.89479 C5.95312,5.15938 5.95312,5.42396 5.95312,5.68854 5.95312,5.83467 5.83467,5.95313 5.68854,5.95313 5.42396,5.95313 5.15938,5.95313 4.89479,5.95313 4.74867,5.95313 4.63021,5.83467 4.63021,5.68854 4.63021,5.42396 4.63021,5.15938 4.63021,4.89479 4.63021,4.74867 4.74867,4.63021 4.89479,4.63021 5.15938,4.63021 5.42396,4.63021 5.68854,4.63021 5.83467,4.63021 5.95312,4.74867 5.95312,4.89479 z"
+                            />
+                            <path
+                                id="npath21"
+                                d="M5.95312,4.89479 C5.95312,5.15938 5.95312,5.42396 5.95312,5.68854 5.95312,5.83467 5.83467,5.95313 5.68854,5.95313 5.42396,5.95313 5.15938,5.95313 4.89479,5.95313 4.74867,5.95313 4.63021,5.83467 4.63021,5.68854 4.63021,5.42396 4.63021,5.15938 4.63021,4.89479 4.63021,4.74867 4.74867,4.63021 4.89479,4.63021 5.15938,4.63021 5.42396,4.63021 5.68854,4.63021 5.83467,4.63021 5.95312,4.74867 5.95312,4.89479 z"
+                            />
+                            <path
+                                id="npath30"
+                                d="M2.64583,8.20208 C2.64583,8.46667 2.64583,8.73125 2.64583,8.99583 2.64583,9.14196 2.52737,9.26042 2.38125,9.26042 2.11667,9.26042 1.85208,9.26042 1.5875,9.26042 1.44138,9.26042 1.32292,9.14196 1.32292,8.99583 1.32292,8.73125 1.32292,8.46667 1.32292,8.20208 1.32292,8.05596 1.44138,7.9375 1.5875,7.9375 1.85208,7.9375 2.11667,7.9375 2.38125,7.9375 2.52737,7.9375 2.64583,8.05596 2.64583,8.20208 z"
+                            />
+                            <!-- hamburger close paths C3 -->
+                            <path
+                                id="xpath10"
+                                d="M 5.0270833,1.3229167 H 5.55625 6.35 7.9375 9.2604167 L 8.9296875,1.6536458 C 8.5584508,1.4116374 8.5128194,1.3929254 7.9375,1.3874136 L 7.8052083,1.4552083 5.2916667,3.96875 2.778125,1.4552083 2.6458333,1.4264276 C 2.3020099,1.3895013 1.9295626,1.4156963 1.6536458,1.6536458 l -0.3307291,-0.3307291 1.3229166,-4.8e-6 h 1.5875 z"
+                            />
+                            <path
+                                id="xpath20"
+                                d="m 1.3229167,4.2333333 v -1.5875 -1.3229166 L 1.6536458,1.6536458 C 1.3301893,1.8883478 1.3964168,2.3091815 1.4133677,2.6501866 L 1.4552083,2.778125 3.96875,5.2916667 1.4552083,7.8095616 1.4220743,7.9418533 c 0.00318,0.4535983 -0.00358,0.7488623 0.2315715,0.9878342 -0.09973,0.1235539 -0.3307291,0.3307292 -0.3307291,0.3307292 6.438e-4,-0.251308 0,-1.2205784 0,-1.3229167 V 6.35 5.55625 5.0270833 Z"
+                            />
+                            <path
+                                id="xpath21"
+                                d="m 2.6458333,9.1721422 c 0.097465,-0.039664 0.034872,0.00131 0.097465,-0.039664 L 5.2916667,6.6145833 7.8053081,9.128125 v 0 C 8.3408641,9.3176838 8.8797068,9.007933 8.9296878,8.92969 9.0253225,9.0339462 9.2616871,8.960742 9.260417,9.2604192 8.9764929,9.260285 8.0078416,9.2604133 7.9375,9.2604133 H 6.35 l -0.8024566,0.00871 H 5.0183767 l -0.79375,-2.8e-6 -1.5787934,-0.00871 c -0.2174601,-0.00494 -1.3226142,0.00652 -1.3226142,0.00652 0,0 0.2363861,-0.2528862 0.3304267,-0.3372421 0.2302196,0.2323101 0.6400857,0.2348268 0.9921875,0.2424538 z"
+                            />
+                            <path
+                                id="xpath30"
+                                d="m 9.2604167,2.6458333 v 1.5875 l -7e-7,0.79375 V 5.55625 l 7e-7,0.79375 v 1.5875 c 0,0.1612994 0.00308,1.0252755 -3.011e-4,1.3294296 L 8.9296875,8.9296875 C 9.1330907,8.7748144 9.2263916,8.3645351 9.1699656,7.9418533 9.1251247,7.6059542 9.1763656,7.8578093 9.1498916,7.8313281 8.2383179,6.9194971 6.6145833,5.2916667 6.6145833,5.2916667 L 9.128125,2.778125 9.1699656,2.6458333 C 9.1705927,2.2578803 9.1865516,1.9124557 8.9296875,1.6536458 9.1186271,1.4180231 9.0897337,1.4988743 9.2604167,1.3229167 c 0.00647,0.3210875 0,1.2414244 0,1.3229166 z"
+                            />
+                            <!-- hamburger close paths C4 -->
+                            <path
+                                id="ypath10"
+                                d="M 5.3760011,3.6876836 5.3203581,3.7538419 6.7461703,2.3479772 7.6875599,1.5044584 C 7.903683,1.3108044 8.8016013,1.5530571 8.7930779,1.650649 L 8.6258639,1.8185944 C 8.2747882,1.5887279 8.2813303,1.641113 7.7372553,1.6358777 L 7.6324774,1.7176772 5.2408244,4.0729555 2.8083791,1.6301128 2.6832719,1.6027761 C 2.3581208,1.5677024 2.0059003,1.5925832 1.7449679,1.8185944 L 1.6627457,1.7525522 C 1.3924367,1.3415846 2.904102,1.1276382 3.3090389,1.5623419 l 0.6779087,0.7277418 z"
+                            />
+                            <path
+                                id="ypath20"
+                                d="M 2.5511661,3.8678927 1.5063039,2.7527329 C 1.3514861,2.587499 1.3994098,1.7906393 1.6668627,1.562347 1.9927066,1.7264074 1.6407119,1.7138825 1.7449679,1.8185944 1.5131816,2.1159493 1.606369,2.3735195 1.6223994,2.697416 v 0 l 2.5310912,2.621612 -2.578575,2.5134937 -0.032156,0.052619 C 1.5457696,8.3159814 1.5349896,8.516042 1.7573701,8.7430244 1.6630563,8.8603792 1.5402896,8.9272657 1.5402896,8.9272657 1.2206467,8.377615 1.3457511,7.994313 1.4446023,7.7947683 L 2.383013,6.7712877 3.6676327,5.5408397 3.8936243,5.3263699 3.6388521,5.0724012 Z"
+                            />
+                            <path
+                                id="ypath21"
+                                d="m 2.6832719,8.9598787 c 0.092172,-0.037674 0.032978,0.00124 0.092172,-0.037674 L 5.2898953,6.4435695 7.562547,8.9180699 v 0 C 8.0690181,9.0981183 8.5785975,8.803908 8.6258641,8.7295906 8.7163051,8.8286161 9.1045088,8.2877065 9.1033077,8.5723485 9.1264068,9.0285944 8.0397016,9.304398 7.6440268,9.1569071 L 6.499157,8.0348064 5.4327437,6.8650239 5.4080497,6.8868571 4.0771054,8.249406 3.3302086,9.0275336 C 3.0339506,9.290004 2.2511185,9.419366 1.5374059,8.9268709 1.4147357,8.8422226 1.6560344,8.8097159 1.7449679,8.7295922 1.9626848,8.950247 2.3502919,8.9526374 2.6832719,8.9598818 Z"
+                            />
+                            <path
+                                id="ypath30"
+                                d="M 8.9502762,3.3039712 8.2092362,4.0500002 6.8143168,5.463088 6.9122948,5.1855785 8.0340869,6.3122339 8.9211655,7.193073 C 9.3558,7.5402742 9.4210038,8.6760466 8.8313074,8.8762448 8.6903118,8.9241119 8.6258639,8.7295882 8.6258639,8.7295882 8.8182207,8.5824853 8.9064546,8.1927902 8.853093,7.7913149 8.8106873,7.4722682 8.8591454,7.7114875 8.8341092,7.6863348 7.972041,6.8202515 6.4364878,5.2740914 6.4364878,5.2740914 L 8.8135246,2.8866571 8.853093,2.7610027 C 8.853686,2.3925138 8.868778,2.0644195 8.6258639,1.8185944 c 0.1786787,-0.2238012 0.0058,-8.158e-4 0.167214,-0.1679454 0.7381184,0.5303932 0.163067,1.6474139 0.1571983,1.6533222 z"
+                            />
+                        </defs>
+                    </svg>
+                </span>
+            </li>
+        </ul>        
+    </nav>
+    <main class="wrapper">        
+        <article class="resume">
+            <section class="grid-area" id="name">
+                <span class="grid-title">Gwen Van Laere</span><br><hr>
+                <div class="name-box">
+                    <p><span id="hello">Hello world<span class="letters" data-letter="!">!</span></span></p>
+                    <p>Mijn naam is <span>Gwen</span> en ik ben geboren en getogen in West-Vlaanderen. Ik ben ongehuwd, heb geen kinderen en ik geniet optimaal van deze vrijheid. 
+                    Ik heb een tijdje in <span id="hrvatska">Kroatië</span> gewoond. 
+                    Het land fascineerde mij en h<span class="letters" data-letter="e1">e</span>t was altijd al mijn favoriete reis&shy;be&shy;stemming. Dit <span>avontuur</span> heeft mij enorm verrijkt en op veel vlakken sterker gemaakt. In ieder geval heeft het mij een beter inzicht gegeven in wat ik precies verwacht van het leven.</p> 
+                    <p>Ik heb destijds handels&shy;weten&shy;schap&shy;pen ge&shy;stu&shy;deerd en het curri&shy;culum dat ik heb door&shy;lopen heeft gere&shy;sul&shy;teerd in een <span>cogni&shy;tieve en rationele</span> gedachten&shy;gang. S<span class="letters" data-letter="o">o</span>mmige dingen die ik niet op school 
+                    leerde - zoals <span>people skills</span> - heb ik zelf ontwikkeld door mijn comfort zone te verlaten, nieuwe mensen te ont&shy;moeten en met een open geest 
+                    tegenover de uitdagingen des levens te staan... Ik hou dan ook heel erg van reizen en het lie<span class="letters" data-letter="f2">f</span>ste doe ik dat à l'improviste met 
+                    mijn <span id="oldtimer">oldtimer</span> busje.</p> 
+                    <p>Zei iemand ontwikkelen? De laatste tijd gaat mijn interesse uit naar <span>web development & program&shy;ming</span> en ik heb inmiddels verschil&shy;lende opleidingen afgewerkt.
+                    Mijn <span class="letters" data-letter="c">c</span>redo is dat je nooit teveel kan bijleren in onze immer veran&shy;derende wereld. Deze s<span class="letters" data-letter="e2">e</span>ctor is daar eigenlijk het levende voorbeeld van en ik ben er zeker van dat het een li<span class="letters" data-letter="f1">f</span>e-changer kan zijn voor mezelf.
+                    In een ideale wereld zou ik een job vinden die alle bovenstaande aspecten herbergt.</p> 
+                    <p id="meet-up">Dit gezegd zijnde... Let's have a 
+                        <span class="coffees" data-letter="c">c</span
+                        ><span class="coffees" data-letter="o">o</span
+                        ><span class="coffees" data-letter="f1">f</span
+                        ><span class="coffees" data-letter="f2">f</span
+                        ><span class="coffees" data-letter="e1">e</span
+                        ><span class="coffees" data-letter="e2">e</span
+                        ><span class="coffees" data-letter="!">!</span>
+                    </p><br>
+                </div> 
+            </section>
+            <section class="grid-area" id="photo">                
+                <div class="photo-box">
+                    <div class="circle" id="circle">
+                        <img id="profile-picture" alt="profielfoto" src="img/profile.jpg">
+                        <img id="bus" alt="toyota campervan busje" src="img/bus2.jpg">
+                        <img id="croatia" alt="Kroatië" src="img/HR4.jpg">
+                    </div>                    
+                </div>
+            </section>
+            <section class="grid-area" id="about">
+                <span class="grid-title">mijn gegevens</span><br>
+                <hr>
+                <div class="about-box">
+                    <h5 class="about-title">geboortedatum</h5>
+                    <p class="about-text">15 april 1984</p>
+                    <h5 class="about-title">adres</h5>
+                    <p class="about-text">Geluwe, België</p>
+                    <h5 class="about-title">nationaliteit</h5>
+                    <p class="about-text">Belg</p>
+                    <h5 class="about-title">gsm</h5>
+                    <p class="about-text">+32(0)468172420</p>
+                    <h5 class="about-title">e-mail</h5>
+                    <p class="about-text">gwen_van_laere&#64;hotmail.com</p>
+                </div>
+            </section>
+            <section class="grid-area" id="work">
+                <span class="grid-title">ervaringen</span><br>
+                <hr>
+                <div id="work-box" class="work-box">
+                    <ul id="timeline" class="timeline">
+                        <li class="event" data-date="2020">
+                            <div class="job-infos">
+                                <h1 id="first-job" class="job-title" tabindex="0">Editor / Web Developer</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Daily Croatia</span>, Zagreb (KR)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Proofreading / editing van nieuwsartikels</li>
+                                            <li>SEO-geoptimaliseerde content schrijven</li>
+                                            <li>Onderhoud website met behulp van <span>WordPress</span> en <span>Datawrapper</span></li>
+                                            <li>Work flows en homepage aanpassen en verbeteren</li>
+                                            <li>Strategie uitwerken voor groei en promotie</li>
+                                            <li class="company">Daily Croatia is een online nieuws & media portaal gerelateerd aan Kroatië voor Engelse lezers</li>
+                                            <li class="employer-website"><a href="https://dailycroatia.com/" target="_blank">Homepagina</a></li>
+                                        </ul>
+                                    </div>
+                                </div>            
+                            </div>
+                        </li>
+                        <li class="event" data-date="2019">
+                            <div class="job-infos">
+                                <h1 class="job-title" tabindex="0">Customer Care Specialist</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Q Experience</span>, Zagreb (KR)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Customer support voor de Nederlandse markt met <span>Salesforce</span></li>
+                                            <li>De cliënt vertegenwoordigen via telefoon, e-mail en social media kanalen</li>
+                                            <li>Interne databank updaten</li>
+                                            <li class="company">Q Experience is een BPO organisatie dat customer support verleent in opdracht van online bedrijven</li>
+                                            <li class="employer-website"><a href="https://q-xperience.com/" target="_blank">Homepagina</a></li>
+                                        </ul>
+                                    </div>
+                                </div>    
+                            </div>
+                        </li>
+                        <li class="event" data-date="2018">
+                            <div class="job-infos">
+                                <h1 class="job-title" tabindex="0">Vendor / Seller</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Rock & Rule</span>, Kortrijk (BE)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Verkoopsgerichte werkkracht voor non-food producten op markten en evenementen</li>
+                                            <li>Europa doorkruisen en frameworks opzetten</li>
+                                            <li>Internationale context: Slovenië - Duitsland - Tsjechië - Nederland</li>
+                                            <li class="company">Rock & Rule verkoopt non-food artikelen op markten en evenementen in Europa</li>
+                                        </ul>
+                                    </div>
+                                </div>    
+                            </div>                    
+                        </li>
+                        <li class="event" data-date="2011">
+                            <div class="job-infos">
+                                <h1 class="job-title" tabindex="0">Webcontent Manager</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Cebeo</span>, Waregem (BE)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Content onderhouden van de website met meer dan een miljoen producten</li>
+                                            <li>Bulk import door middel van grote DBF/CSV-bestanden in Excel</li>
+                                            <li>Data classification volgens de <span></span>ETIM</span> standaard</li>
+                                            <li>Aanmaken en coderen van nieuwe artikelen in de database</li>
+                                            <li>Data-analyse en export van en uit het systeem</li>
+                                            <li class="company">Cebeo is marktleider als groothandel van elektrisch en elektrotechnisch materiaal in België</li>
+                                            <li class="employer-website"><a href="https://www.cebeo.be/" target="_blank">Homepagina</a></li>
+                                        </ul>
+                                    </div> 
+                                </div>                                                              
+                            </div>
+                        </li>
+                        <li class="event" data-date="2010">
+                            <div class="job-infos">
+                                <h1 class="job-title" tabindex="0">Stage</h1>
+                                <div class="job-detail">
+                                    <h2><span class="employer">Ethicom</span>, Ghent (BE)</h2>
+                                    <div class="job-discription">
+                                        <ul class="job-discription-list">
+                                            <li>Strategieën uitwerken voor fondsenwerving</li>
+                                            <li>Advies verlenen voor NGO management en communicatie</li>
+                                            <li>Marktonderzoek / krantenknipsels verzamelen</li>
+                                            <li>Notuleren in meetings</li>
+                                            <li class="company">Ethicom is een adviesbureau voor NGO's dat is gespecialiseerd in fondsenwerving, management and communicatie</li>
+                                        </ul>
+                                    </div> 
+                                </div>  
+                            </div>
+                        </li>
+                    </ul>
+                </div>                
+            </section>
+            <section class="grid-area" id="education">
+                <span class="grid-title">opleiding</span><br>
+                <hr>
+                <div class="education-box">                    
+                    <h2 class="degree1">Master in de Handels-<wbr>wetenschappen</h2>
+                    <h3 class="degree2">Optie marketingmanagement</h3>
+                    <p class="school">Universiteit Gent</p>
+                    <p class="school-location">Gent</p>
+                    <hr>
+                    <h2 class="degree1">Secundair onderwijs</h2>
+                    <h3 class="degree2">economie & moderne talen</h3>
+                    <p class="school">Sint-Aloysiuscollege Menen</p>
+                    <p class="school-location">Menen</p>
+                </div>
+            </section>
+            <section class="grid-area" id="skills">
+                <span class="grid-title">competenties</span><br>
+                <hr>
+                <div class="skills-box">
+                    <div role="tablist" aria-label="skillset" class="skills-tab" tabindex="0">
+                        <button role="tab" aria-selected="true" id="soft-skills" class="skill-button">soft</button>
+                        <button role="tab" aria-selected="false" id="hard-skills" class="skill-button">hard</button>
+                        <button role="tab" aria-selected="false" id="files" class="skill-button">files</button>
+                    </div>                    
+                    <div role="tabpanel" aria-labelledby="soft-skills" id="soft" class="skill-div">
+                        <h3>soft</h3>
+                        <ul>
+                            <li>flexibel</li>
+                            <li>analy&shy;tisch</li>
+                            <li>pro-&shy;actief</li>
+                            <li>zelf&shy;standig</li>
+                            <li>punc&shy;tueel</li>
+                            <li>team&shy;speler</li>
+                            <li>zelf&shy;bewust</li>
+                            <li>communi&shy;catief</li>
+                            <li>oplossings&shy;gericht</li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="hard-skills" id="hard" class="skill-div" hidden="true">
+                        <h3>hard</h3>
+                        <ul id="studied">
+                            <li>Office</li>
+                            <li>HTML5</li>
+                            <li>JavaScript</li>
+                            <li>CSS3</li>
+                            <li>WordPress</li>
+                            <li>PHP</li>
+                            <li>SQL</li> 
+                            <li>jQuery</li>                           
+                            <li class="filler"><span class="fill">DONE</span><span class="fill">TO DO</span></li>                            
+                            <li class="ambition">Python</li>
+                            <li class="ambition">React</li>
+                            <li class="ambition">Node.js</li>   
+                            <li class="ambition">Sass</li>                         
+                        </ul>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="files" id="certificates" class="skill-div" hidden="true">
+                        <br><p>Attesten (<span>downloads</span>)</p>
+                        <ul>
+                            <li><a href="./files/HTML5.pdf" download target="_blank">HTML5</a></li>
+                            <li><a href="./files/CSS3.pdf" download target="_blank">CSS3</a></li>
+                            <li><a href="./files/JavaScript.pdf" download target="_blank">JavaScript</a></li>
+                            <li><a href="./files/HTML-CSS Projects.pdf" download target="_blank">Projecten</a></li>    
+                            <li><a href="./files/PHP.pdf" download target="_blank">PHP</a></li>   
+                            <li><a href="./files/SQL.pdf" download target="_blank">SQL</a></li>    
+                            <li><a href="./files/jQuery.pdf" download target="_blank">jQuery</a></li>                         
+                        </ul>
+                    </div>                    
+                </div>
+                
+            </section>
+            <section class="grid-area" id="languages">
+                <span class="grid-title">talenkennis</span><br>
+                <hr>
+                <div class="language-box">
+                    <ul>
+                        <li><p>nederlands</p><span class="language-bar"><span id="dutch"></span></span></li>                
+                        <li><p>engels</p><span class="language-bar"><span id="english"></span></span></li>                    
+                        <li><p>frans</p><span class="language-bar"><span id="french"></span></span></li>                    
+                        <li><p>duits</p><span class="language-bar"><span id="german"></span></span></li>                    
+                        <li><p>kroatisch</p><span class="language-bar"><span id="croatian"></span></span></li>  
+                    </ul>                 
+                </div>
+            </section>
+        </article>            
+    </main>
+    <footer><div></div></div></footer>      
+</body>
+</html>
+
