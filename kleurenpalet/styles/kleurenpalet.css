@@ -1,0 +1,227 @@
+/** @format */
+
+/* normalize */
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input {
+    display: block;
+    outline: none;
+    border: none;
+    background: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+label,
+table,
+tr {
+    display: block;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+th,
+td {
+    display: inline-block;
+    border: none;
+    outline: none;
+}
+:root {
+    --bgColor: rgb(250, 214, 8);
+}
+
+/* general styles */
+body {
+    width: 100%;
+    height: 100vh;
+    font-size: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
+    background: var(--bgColor);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.bord {
+    border-radius: 10px;
+    box-shadow: 0 0 20px 2px rgba(10, 10, 10, 0.548);
+    border-left: 2px solid rgba(87, 86, 86, 0.57);
+    border-bottom: 2px solid rgba(87, 85, 85, 0.548);
+    border-right: 2px solid grey;
+    border-top: 2px solid grey;
+}
+
+/* taakbalk */
+.taakbalk {
+    background: linear-gradient(45deg, #c5dbf0, #898a8a 70%, var(--bgColor));
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.statusbalk,
+.controls.file,
+.venster,
+canvas {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* controls : labels & buttons */
+.controls.kleuren {
+    justify-content: flex-start;
+    border-top-left-radius: 8px;
+}
+.controls.functies {
+    justify-content: center;
+}
+.controls.basis {
+    order: 2;
+    justify-content: flex-end;
+    border-top-right-radius: 8px;
+}
+
+label,
+input[type='button'],
+input[type='number'] {
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    height: 2rem;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    user-select: none;
+}
+input[type='button'] + label {
+    cursor: pointer;
+}
+label {
+    width: 2em;
+    height: 2em;
+}
+input:not([type='number']) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+.controls {
+    height: 100%;
+    padding: 0 1em;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -1px -1px 0px 0px rgba(98, 98, 9, 0.73), inset 1px 1px 0px 0px rgba(247, 247, 246, 0.555);
+}
+.horizontaal {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.horizontaal > label,
+.horizontaal > input {
+    margin: 1vw;
+}
+.verticaal {
+    flex-direction: column;
+}
+.verticaal > label,
+.verticaal > input[type='button'] {
+    margin: 1vh;
+}
+/* kleuren */
+.controls label {
+    width: 2em;
+    border: 2px solid black;
+    background: var(--bg);
+}
+input[name='kleur'] + label {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+}
+input[name='kleur']:checked + label {
+    background: var(--bg);
+    border: 2px solid rgb(252, 250, 250);
+    color: white;
+    box-shadow: inset 0 0 10px rgba(245, 244, 244, 0.747), 0 0 5px 1px black;
+}
+[type='color'] + label {
+    align-self: center;
+    background: white;
+}
+
+/* basis & functies */
+.basis > label {
+    background: black;
+    color: skyblue;
+}
+.functies > label:hover,
+.basis > label:hover {
+    border: 2px solid black;
+    box-shadow: inset 0px 0 0 2px white;
+}
+.functies > label:active,
+.basis > label:active {
+    background: white;
+}
+.functies > label {
+    background: skyblue;
+}
+input[type='checkbox']:checked + label {
+    background: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+    width: 2em;
+    height: 2em;
+    border-radius: 5px;
+    background: skyblue;
+    text-align: center;
+}
+/* statusbalk */
+.statusbalk {
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(238, 237, 235, 0.5) 15%,
+        rgba(173, 173, 173, 0.75),
+        rgba(244, 244, 241, 0.5) 85%,
+        transparent
+    );
+    transition: opacity 0.5s ease-out;
+    border: 2px solid transparent;
+}
+.statusbalk label {
+    background: white;
+    width: 3em;
+    color: skyblue;
+    cursor: pointer;
+}
+[type='file'] + label:hover {
+    border: 2px solid rgb(75, 74, 74);
+    box-shadow: inset 0px 0 2px rgb(46, 45, 45);
+    color: rgb(0, 217, 255);
+    background: var(--bgColor);
+}
+[type='file'] + label:active {
+    background: black;
+}

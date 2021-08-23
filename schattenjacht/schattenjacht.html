@@ -1,0 +1,100 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="./scripts/js/swiper.js" defer></script>
+        <script src="./scripts/js/schattenjacht.js" defer></script>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/schattenjacht.css" />
+        <title>Schattenjacht</title>
+    </head>
+    <body>
+        <input type="checkbox" name="flipForm" id="instructiesInput" />
+        <div class="modal centreer active hidden" id="modal">
+            <input type="radio" name="language" lang="nl" id="lang-nl" checked />
+            <input type="radio" name="language" lang="en" id="lang-en" />
+            <form action="#" class="centreer">
+                <label lang="en" for="lang-nl" name="language">NL</label>
+                <label lang="nl" for="lang-en" name="language">EN</label>
+                <h2 lang="nl">Schattenjacht</h2>
+                <h2 lang="en">Treasure Hunt</h2>
+                <label lang="nl" for="naam-nl">Naam: </label>
+                <label lang="en" for="naam-nl">Name: </label>
+                <input lang="nl" type="text" id="naam-nl" name="naam" placeholder="Naam speler" />
+                <input lang="en" type="text" id="naam-en" name="naam" placeholder="Player name" />
+                <label lang="nl" for="level">Niveau:</label>
+                <label lang="en" for="level">Level:</label>
+                <select lang="nl" name="level" id="level-nl">
+                    <option lang="nl" value="beginner">Beginner</option>
+                    <option lang="nl" value="normaal">Normaal</option>
+                    <option lang="nl" value="gevorderd">Gevorderd</option>
+                </select>
+                <select lang="en" name="level" id="level-en">
+                    <option lang="en" value="beginner">Beginner</option>
+                    <option lang="en" value="normaal">Normal</option>
+                    <option lang="en" value="gevorderd">Advanced</option>
+                </select>
+                <label lang="nl" for="dimensies">Dimensies:</label>
+                <label lang="en" for="dimensies">Dimensions:</label>
+                <select lang="ntr" name="dimensies" id="dimensies">
+                    <option value="5">5x5</option>
+                    <option value="10">10x10</option>
+                    <option value="15">15x15</option>
+                    <option value="20">20x20</option>
+                </select>
+                <input lang="nl" type="submit" value="Nieuw spel" />
+                <input lang="en" type="submit" value="New Game" />
+                <label lang="nl" for="instructiesInput" data-label="flipform">instructies</label>
+                <label lang="en" for="instructiesInput" data-label="flipform">Instructions</label>
+            </form>
+            <div class="instructies">
+                <div lang="en" class="uitleg">
+                    <h2>Instructions:</h2>
+                    <p>Collect all treasures before your lives run out</p>
+                    <p>Everytime the bad guy bumps into you, a life is lost</p>
+                    <p>It's impossible to go through the walls</p>
+                    <p>Bad guy cannot go through walls or pick up treasures</p>
+                    <p>Choose your difficulty level and the dimensions of the grid</p>
+                </div>
+                <div lang="nl" class="uitleg">
+                    <h2>Instructies:</h2>
+                    <p>Verzamel alle schatten vooraleer je leventjes op zijn</p>
+                    <p>Iedere keer de vijand tegen je loopt verlies je een leven</p>
+                    <p>Het is niet mogelijk om doorheen muren to lopen</p>
+                    <p>De vijand kan niet doorheen muren en kan geen schatten oprapen</p>
+                    <p>Kies de moeilijkheidsgraad en de afmetingen van het speelveld</p>
+                </div>
+                <div lang="en" class="legende">
+                    <h2>Legend:</h2>
+                    <ul>
+                        <li><span data-soort="jager" class="blok centreer onload"></span>Hunter</li>
+                        <li><span data-soort="vijand" class="blok centreer onload"></span>Bad guy</li>
+                        <li><span data-soort="schat" class="blok centreer onload"></span>Treasure</li>
+                        <li><span data-soort="gras" class="blok centreer onload"></span>Grass</li>
+                        <li><span data-soort="muur" class="blok centreer onload"></span>Wall</li>
+                    </ul>
+                    <h2>Good Luck!</h2>
+                </div>
+                <div lang="nl" class="legende">
+                    <h2>Legende:</h2>
+                    <ul>
+                        <li><span data-soort="jager" class="blok centreer onload"></span>Jager</li>
+                        <li><span data-soort="vijand" class="blok centreer onload"></span>Vijand</li>
+                        <li><span data-soort="schat" class="blok centreer onload"></span>Schat</li>
+                        <li><span data-soort="gras" class="blok centreer onload"></span>Gras</li>
+                        <li><span data-soort="muur" class="blok centreer onload"></span>Muur</li>
+                    </ul>
+                    <h2>Veel geluk!</h2>
+                </div>
+                <label lang="en" for="instructiesInput" data-label="flipform">Play</label>
+                <label lang="nl" for="instructiesInput" data-label="flipform">Speel</label>
+            </div>
+        </div>
+        <div class="meldingen" id="meldingen"></div>
+        <div id="speelveld" class="speelveld"></div>
+        <div id="controls" class="controls centreer"></div>
+    </body>
+</html>

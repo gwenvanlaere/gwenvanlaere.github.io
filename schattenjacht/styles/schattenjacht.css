@@ -1,0 +1,567 @@
+/** @format */
+
+/***************** custom variables *****************/
+:root {
+    --spelBreedte: 80%;
+    --spelHoogte: 80%;
+    --accentKleur: #f73a98;
+    --bgKleur: #5e3054;
+    --aspectRatio: 40%;
+    --blokHoogte: 20%;
+    --gap: 0%;
+    --breedte: 5;
+    --hoogte: 5;
+}
+
+/***************** languages *****************/
+#lang-nl:checked ~ form > :lang(en),
+#lang-nl:checked ~ .instructies > :lang(en) {
+    display: none;
+}
+#lang-nl:checked + label {
+    display: none;
+}
+
+#lang-en:checked ~ form > :lang(nl),
+#lang-en:checked ~ .instructies > :lang(nl) {
+    display: none;
+}
+#lang-en:checked + label {
+    display: none;
+}
+input[name='language'] {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+form > label[name='language'] {
+    display: block;
+    color: hotpink;
+    outline: 1px solid var(--accentKleur);
+    background: rgba(0, 0, 0, 0.59);
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 3em;
+    padding: 1vh;
+    font-weight: bold;
+    font-size: 80%;
+    z-index: 10;
+    box-shadow: 0 0 10px black;
+    transition: transform 0.7s ease-in-out;
+}
+form > label[name='language']:active {
+    color: white;
+    background: rgba(77, 17, 47, 0.479);
+}
+input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+/***************** normalize *****************/
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input {
+    display: block;
+    outline: none;
+    border: none;
+}
+label {
+    display: block;
+}
+
+/**************** helper class ****************/
+.centreer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hidden {
+    display: none;
+}
+
+/**************** algemeen ****************/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    width: 100vw;
+    height: 100%;
+    background: var(--bgKleur);
+    color: var(--accentKleur);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+/**************** speelveld ****************/
+.speelveld {
+    pointer-events: none;
+    margin: 2.5vh auto;
+    width: var(--spelBreedte);
+    height: var(--spelHoogte);
+    display: grid;
+    grid-template-columns: repeat(var(--breedte), var(--blokHoogte));
+    grid-template-rows: repeat(var(--hoogte), var(--blokHoogte));
+    /* overflow: hidden; */
+    border-radius: 10px;
+    box-shadow: 0 0 50px 10px #3e3c3c, inset 0 0 80px 20px #000;
+    transition: box-shadow 1.5s ease-out;
+    background: rgba(39, 253, 9, 0.73);
+}
+.modal.hidden ~ .speelveld {
+    pointer-events: all;
+}
+.blok {
+    width: var(--blokHoogte);
+    height: var(--blokHoogte);
+    border-radius: 10px;
+    opacity: 1;
+}
+/* onload start spel */
+.blok.onload {
+    animation: displayBlocks 0.3s cubic-bezier(0.46, -0.45, 0.25, 2.73);
+    animation-delay: calc(var(--i) * 0.1s);
+    animation-iteration-count: 1;
+}
+@keyframes displayBlocks {
+    0% {
+        filter: blur(20px);
+        transform: rotateY(90deg);
+    }
+    100% {
+        /* filter: blur(0px); */
+        filter: blur(0px);
+        top: 0px;
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+/* opmaak blokjes */
+[data-soort='vijand'] {
+    background: tomato;
+}
+[data-soort='jager'] {
+    background: lime;
+}
+[data-soort='schat'] {
+    background: gold;
+    border-radius: 50%;
+    border-left: 1px solid grey;
+    border-bottom: 1px solid grey;
+    height: 90%;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+}
+[data-soort='gras'] {
+    background: #00ff0054;
+    border: 1px solid var(--bgKleur);
+}
+[data-soort='muur'] {
+    background: darkred;
+    border-left: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+[data-soort='vijand']::after,
+[data-soort='jager']::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 10px;
+}
+[data-soort='jager']::after {
+    box-shadow: 0px 0px 20px 0px rgb(11, 10, 10), inset 0 0 20px 10px lime;
+    background: #04f910;
+}
+[data-soort='vijand']::after {
+    box-shadow: 0px 0px 20px 0px rgb(11, 10, 10), inset 0 0 20px 10px #fb2600;
+    background: tomato;
+}
+/* class toggles */
+.schatGevonden {
+    background: goldenrod;
+    box-shadow: 0 0 10px 50px rgba(247, 243, 1, 0.432);
+    transition: none;
+}
+.levenMinder {
+    background: red;
+    box-shadow: 0 0 10px 50px rgba(228, 1, 1, 0.397);
+    transition: none;
+}
+.speelveld.muur {
+    animation: displayBlocks 0.7s ease-in;
+}
+.blok:not([data-soort='gras']) {
+    outline: 1px solid transparent;
+    box-shadow: 0px 0px 15px 0px rgb(8, 8, 8), inset 0px 0px 5px #020202d6;
+    transition: all 0.7s ease-in;
+}
+[data-soort='muur'].active {
+    background: white;
+    transition: none;
+}
+
+[data-soort='vijand'].active {
+    background: rgb(253, 2, 2);
+    box-shadow: 0 0 10px 15px rgba(255, 0, 0, 0.466);
+    transition: none;
+}
+[data-soort='gras'].respawn {
+    background: white;
+    box-shadow: inset 0 0 10px 0px #0d0d0d;
+    transition: all 0.7s ease-in;
+}
+
+/**************** modal (form) ****************/
+#instructiesInput:checked ~ .modal {
+    transform: translate(-50%, -50%) rotateY(180deg);
+    transition: transform 0.7s ease-in-out;
+}
+
+#instructiesInput:checked ~ .modal [name='language'] {
+    transform: rotateY(180deg);
+    transition: transform 0.7s ease-in-out;
+}
+.modal {
+    z-index: 20;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    flex-direction: column;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 0.7s ease-in-out;
+}
+.modal.hidden ~ .meldingen {
+    display: grid;
+}
+form,
+.instructies {
+}
+.modal {
+    opacity: 1;
+    min-width: 300px;
+    min-height: 300px;
+    width: 75vmin;
+    height: 95vmin;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.form {
+    z-index: 2;
+}
+form,
+.instructies {
+    position: absolute;
+    flex-direction: column;
+    opacity: 1;
+    min-width: 300px;
+    min-height: 300px;
+    width: 75vmin;
+    height: 80vmax;
+    max-height: 500px;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border: 2px solid var(--accentKleur);
+    /* background: #daa520a8; */
+    box-shadow: inset 3px 3px 10px black;
+}
+form::after,
+.instructies::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    background: rgba(39, 253, 9, 0.73);
+    filter: blur(5px);
+    opacity: 1;
+    top: 0;
+    box-shadow: inset 0 0 50px #a8a8a8;
+}
+.instructies::after {
+    background: rgb(39, 253, 9);
+}
+
+form > * {
+    width: 40%;
+    font-size: 1rem;
+}
+form > h2,
+.instructies > h2 {
+    font-size: 8vmin;
+    text-align: center;
+    display: block;
+    width: 80%;
+    padding: 4vh 0;
+    border: 2px solid var(--accentKleur);
+    font-weight: bold;
+    margin: 2vh 0;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px 2px rgb(68, 68, 68);
+    text-shadow: 0 0 3px black;
+}
+form > select,
+form > input {
+    height: 6vh;
+    margin: 1vh;
+    background: rgba(0, 0, 0, 0.59);
+    color: var(--accentKleur);
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--accentKleur);
+}
+form > select:focus,
+form > input:focus {
+    border: 2px solid white;
+}
+form > label,
+.instructies > label {
+    font-weight: bold;
+    text-shadow: 0 0 3px black;
+}
+/* buttons */
+form > [type='submit'],
+.controls input {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    background: var(--accentKleur);
+    width: 50%;
+    border: 2px solid black;
+    cursor: pointer;
+    border: 2px solid #9b0283;
+}
+form > [type='submit']:active,
+.controls input:active {
+    border: 2px solid white;
+}
+
+/* instructies */
+.instructies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+.instructies > * {
+    margin: 0 4vmin;
+}
+.instructies h2 {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+}
+.instructies p,
+.instructies li {
+    font-size: 70%;
+}
+.instructies ul {
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    border-radius: 10px;
+    border: 2px solid var(--accentKleur);
+}
+[data-label='flipform'] {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    border: 1px solid white;
+    margin: 0 auto;
+    padding: 0.3vh;
+    width: 40%;
+}
+[data-label='flipform']:active {
+    background: transparent;
+    color: white;
+}
+[data-label='flipform']:hover {
+    background: hotpink;
+    color: white;
+}
+.instructies ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.instructies li {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.instructies li > span {
+    width: 5vmin;
+    height: 5vmin;
+}
+
+/**************** meldingen en controls ****************/
+.meldingen,
+.controls {
+    display: grid;
+    height: 15vh;
+    font-size: 80%;
+    border-radius: 10px;
+}
+
+/*controls*/
+.controls {
+    display: none;
+    width: 80vh;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+    gap: 4vh;
+    padding: 2vh;
+}
+.controls > label {
+    width: 100%;
+}
+.controls input {
+    border-radius: 10px;
+    width: 100%;
+    padding: 1vh;
+}
+/*meldingen*/
+/* .modal.hidden ~ .meldingen {
+    display: grid;
+} */
+.meldingen {
+    display: none;
+    font-weight: bold;
+    min-width: var(--spelBreedte);
+    box-shadow: inset 0 0 10px black;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.7fr 0.8fr;
+    gap: 0 0;
+    grid-template-areas:
+        'levens schatten speler score'
+        'melding melding melding melding';
+}
+
+.meldingen > span:nth-child(3) {
+    grid-area: melding;
+}
+.meldingen > span:nth-child(1) {
+    grid-area: levens;
+}
+.meldingen > span:nth-child(2) {
+    grid-area: schatten;
+}
+.meldingen > span:nth-child(4) {
+    grid-area: speler;
+}
+.meldingen > span:nth-child(5) {
+    grid-area: score;
+}
+
+.meldingen > span {
+    align-self: center;
+    justify-self: center;
+}
+#melding {
+    transition: box-shadow 1s ease-in;
+}
+.meldingen > span:nth-child(1) {
+    color: hotpink; /*levens*/
+}
+.meldingen > span:nth-child(2) {
+    color: goldenrod; /*schatten*/
+}
+.meldingen > span:nth-child(3) {
+    font-size: 1.2rem; /*meldingen*/
+    text-align: center;
+    margin: 0;
+    padding: 1.2vh 0;
+    max-width: var(--spelBreedte);
+    display: block;
+    border-radius: 10px;
+    color: black;
+    background: rgba(39, 253, 9, 0.73);
+    box-shadow: inset 0 0 10px 2px #000000;
+    width: 95vw;
+}
+.meldingen > span:nth-child(4) {
+    color: white; /*naam*/
+}
+.meldingen > span:nth-child(5) {
+    color: red; /*score*/
+    padding-right: 2vh;
+}
+@media only screen and (min-width: 400px) {
+    .instructies {
+        gap: 2vh;
+    }
+    .instructies h2 {
+        font-size: 5vmin;
+    }
+    .instructies p,
+    .instructies li {
+        font-size: 2.5vmin;
+    }
+}
+@media only screen and (min-width: 550px) {
+    .modal.hidden ~ .meldingen {
+        height: 7.5vh;
+        grid-auto-columns: 1fr;
+        grid-template-columns: 0.5fr 0.5fr 1.5fr 0.5fr 0.5fr;
+        grid-template-rows: 1fr;
+        gap: 0% 0%;
+        grid-template-areas: 'levens schatten melding speler score';
+    }
+    .modal.hidden ~ .controls {
+        display: grid;
+    }
+    .meldingen > span:nth-child(3) {
+        width: 60vw;
+    }
+    .meldingen > span:nth-child(1) {
+        justify-self: flex-start;
+        padding-left: 1vh;
+    }
+    .meldingen > span:nth-child(5) {
+        justify-self: flex-end;
+    }
+    .instructies {
+        gap: 1vh;
+    }
+    .instructies li > span {
+        width: 35px;
+        height: 35px;
+    }
+}
+@media only screen and (min-width: 600px) {
+    #instructiesInput:checked ~ .modal > label {
+        transform: translateY(170%) rotateY(180deg);
+        top: 0;
+    }
+}
+@media only screen and (min-width: 750px) {
+    .meldingen {
+        font-size: 100%;
+    }
+    .meldingen > span:nth-child(3) {
+        font-size: 1.2rem;
+    }
+}
