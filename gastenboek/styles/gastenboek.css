@@ -1,0 +1,546 @@
+/**
+ * /* Normalize
+ *
+ * @format
+ */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+:root {
+    --bgMain: rgb(27, 27, 27);
+    --bgMessage: wheat;
+    --hover: #f902f9;
+    --accentColor: rgb(178, 228, 248);
+    --bgGradientBtm: linear-gradient(to bottom, #020d48, #3e0329);
+    --bgGradientLft: linear-gradient(to left, #020d48, #3e0329);
+}
+/* normalize */
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background: var(--bgMain);
+    color: white;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: var(--hover);
+}
+a:active {
+    color: var(--accentColor);
+}
+li {
+    list-style-type: none;
+}
+
+/* general styles */
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 100%;
+    min-height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+nav ul,
+main,
+.main-title {
+    margin: 0 auto;
+    width: 65vw;
+    display: flex;
+}
+.main-title {
+    justify-content: center;
+}
+main {
+    justify-content: center;
+    flex-direction: column;
+}
+.formError {
+    font-size: 0.8rem;
+    top: 0;
+    color: red;
+    background: linear-gradient(to left, skyblue, #00e7ff 50%, rgb(46, 183, 218));
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    padding-left: 2rem;
+}
+.formError.bericht {
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 0.2rem;
+}
+.underline {
+    text-decoration: underline;
+}
+time {
+    font-size: 70%;
+}
+footer,
+nav {
+    background: var(--bgGradientLft);
+    min-height: 3rem;
+}
+
+/* navigation */
+nav {
+    box-shadow: 0 2px 3px rgb(51, 51, 51);
+}
+nav ul {
+    height: 100%;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav ul li {
+    width: 50%;
+}
+nav ul li:nth-of-type(2) {
+    text-align: center;
+}
+nav ul li:last-of-type {
+    text-align: right;
+}
+.main-title {
+    height: 7rem;
+    font-size: 6rem;
+    background: linear-gradient(45deg, #6fccf0, #02b4fd 20%, #fb01d4 80%, #ec93de);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* main page */
+.berichten,
+.toevoegenBericht {
+    position: relative;
+    border-radius: 10px;
+    padding: 2rem;
+    color: rgb(178, 228, 248);
+    background: var(--bgGradientBtm);
+    box-shadow: 0 0px 0 1px #fd00ca, inset -10px 10px 15px #000, inset 5px -5px 10px #4b5355;
+}
+.berichten {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem auto;
+    max-height: 70vh;
+}
+.berichten::before,
+.berichten::after {
+    content: '';
+    position: absolute;
+    width: 125%;
+    height: 0.2rem;
+    background: linear-gradient(to left, #6fccf0, #02b4fd 20%, #fb01d4 80%, #ec93de);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -3rem);
+}
+.berichten::after {
+    top: 100%;
+    transform: translate(-50%, 3rem);
+}
+.berichtenBox {
+    scrollbar-width: none;
+    max-height: calc(70vh - 2rem);
+    overflow: hidden scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background: #ffffff17;
+    border-radius: 10px;
+    box-shadow: 1px -1px 0 #fbf7f78c, inset 1px -1px 5px #2b2a2a;
+}
+.berichtenBox::-webkit-scrollbar {
+    display: none;
+}
+.berichten .message {
+    width: 96%;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(autofill, auto);
+    margin: 1rem 0;
+    padding: 1rem 1rem 0 1rem;
+    background: linear-gradient(-92deg, black, #012328b5, black);
+}
+.berichten .message::before,
+.berichten .message::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -1%;
+    top: -3%;
+    background: linear-gradient(to right, #f902f9, rgba(135, 207, 235, 0.527) 50%, transparent);
+    width: 50%;
+    z-index: -1;
+    height: 100%;
+    transform: rotate(-1deg);
+}
+.berichten .message::after {
+    left: 51%;
+    top: initial;
+    bottom: -3%;
+    background: linear-gradient(to left, skyblue, #f902f981 50%, transparent);
+}
+.message > .msgNaam {
+    font-size: 1.1rem;
+    font-weight: bold;
+    justify-self: flex-start;
+    color: rgb(0, 162, 255);
+}
+.message > .msgBoodschap {
+    justify-self: flex-start;
+}
+.message > .msgDate {
+    color: #f902f9;
+    justify-self: flex-end;
+}
+.toevoegenBericht {
+    margin: 2rem 0;
+}
+.toevoegenBericht form {
+    width: 100%;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.toevoegenBericht form > textarea {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 0.5rem;
+    width: 100%;
+    resize: none;
+    -moz-resizer: none;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to left, skyblue, #00e7ff 50%, rgb(46, 183, 218));
+    border-radius: 10px;
+    border: none;
+}
+.toevoegenBericht form > input[type='submit'] {
+    font-family: 'Patrick Hand', cursive;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    color: white;
+    padding: 0;
+    cursor: pointer;
+    background: var(--hover);
+    font-weight: bold;
+    width: 25%;
+}
+
+/* login - register */
+.container {
+    position: relative;
+    left: 50%;
+    width: 80vw;
+    height: 500px;
+    margin: 2rem 0;
+    transform: translateX(-50%);
+}
+.containerBg {
+    position: absolute;
+    top: 40px;
+    top: 2.5rem;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bgGradientLft);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+.containerBg .box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.containerBg .box h2 {
+    color: white;
+    font-size: 1.9rem;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: -1px 0px 6px #00000091;
+}
+.containerBg .box button {
+    cursor: pointer;
+    padding: 10px 20px;
+    color: black;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    border: none;
+}
+
+.containerBg .box button:hover {
+    background: var(--accentColor);
+}
+.containerBg .box button:active {
+    color: white;
+}
+.formBx {
+    font-family: 'Patrick Hand', cursive;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(45deg, #6fccf0, #02b4fd 20%, #fb01d4 80%, #ec93de);
+    z-index: 1000;
+    display: flex;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in-out;
+}
+.formBx.active {
+    left: 50%;
+}
+form .formError {
+    margin-left: 2rem;
+}
+.formBx .form {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    transition: 0.5s;
+}
+.formBx .signinForm {
+    transition-delay: 0.25s;
+}
+.formBx .signupForm {
+    left: 100%;
+    transition-delay: 0s;
+}
+.formBx.active .signinForm {
+    left: -100%;
+    transition-delay: 0s;
+}
+.formBx.active .signupForm {
+    left: 0;
+    transition-delay: 0.25s;
+}
+.formBx form {
+    color: white;
+    width: 100%;
+    height: 70vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formBx form h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: rgb(32, 32, 32);
+    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+}
+input {
+    font-family: 'Patrick Hand', cursive;
+    color: white;
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 5vh;
+    padding-left: 1vh;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgb(5, 5, 5);
+}
+.formBx form input[type='submit'] {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    color: white;
+    background: var(--hover);
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px white;
+}
+section form > input:not([type='submit']) {
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 0.5vh 0.5vh 0.5vh 1vh;
+    padding: 1vh;
+    height: 4vh;
+    transition: 0.2s ease-out;
+    background: rgba(3, 3, 3, 0.164);
+}
+section form > label {
+    font-size: 0.9rem;
+    color: rgb(96, 205, 248);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    outline: none;
+    height: 4vh;
+    padding-left: 1vh;
+    transition: 0.5s ease-in-out;
+}
+.signinForm input {
+    margin: 0.2rem 0;
+}
+section form > input:focus {
+    box-shadow: 0 0 0 2px var(--accentColor);
+    color: black;
+    background: rgba(253, 253, 253, 0.514);
+}
+.signinForm form > label {
+    transform: translate(0vh, -4.5vh);
+}
+.signupForm form > label {
+    transform: translate(0vh, -5.5vh);
+}
+.signinForm form > input:focus + label,
+.signinForm form > input:valid + label {
+    color: white;
+    transform: scale(0.9) translate(-1.2rem, -9vh);
+}
+.signupForm form > input:focus + label,
+.signupForm form > input:valid + label {
+    color: white;
+    transform: scale(0.9) translate(-1.2rem, -10vh);
+}
+.signinForm form > input:valid + label,
+.signupForm form > input:valid + label {
+    color: var(--hover);
+}
+section form > input[type='submit']:hover {
+    color: var(--accentColor);
+}
+section form > input[type='submit']:active {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
+}
+.small {
+    font-size: 0.8rem;
+}
+
+/* logout page */
+.logout {
+    text-align: center;
+}
+h2.logout {
+    color: skyblue;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+h3.logout {
+    font-size: 2rem;
+}
+
+/* footer */
+footer {
+    box-shadow: 0 -2px 3px rgb(51, 51, 51);
+}
+
+@media only screen and (max-width: 600px) {
+    nav ul,
+    main,
+    .main-title {
+        width: 90vw;
+    }
+    .main-title {
+        font-size: clamp(15vw, 5rem, 8vw);
+    }
+    .toevoegenBericht form > input[type='submit'] {
+        width: 50%;
+    }
+    .container {
+        max-width: 400px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .containerBg {
+        top: 0;
+        height: 100%;
+    }
+    .containerBg .box h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .formBx {
+        width: 100%;
+        max-height: 350px;
+        top: 0;
+        box-shadow: none;
+    }
+    .formBx form {
+        max-height: 350px;
+        height: auto;
+    }
+    .formBx .form {
+        padding: 2rem;
+    }
+    .formBx.active {
+        top: 150px;
+        left: 0;
+    }
+    .formBx input {
+        margin-bottom: 0.2rem;
+    }
+    .signupForm form > input:focus + label,
+    .signupForm form > input:valid + label {
+        transform: scale(0.9) translate(-1.2rem, -3.2rem);
+    }
+    .signupForm form > label {
+        transform: translate(0vh, -1.6rem);
+    }
+    .formBx.active .signinForm {
+        left: -150%;
+    }
+    .containerBg .box {
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        bottom: 0;
+    }
+    .box.signin {
+        top: 0;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .formBx .form {
+        padding: 0;
+    }
+}

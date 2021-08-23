@@ -1,0 +1,941 @@
+/**
+ * /* Normalize
+ *
+ * @format
+ */
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;1,200;1,400;1,600&family=Style+Script&display=swap');
+:root {
+    --bgMain: url('../img/herb-butter\(bg\).jpg');
+    --bgSec: black;
+    --accentColor: orange;
+    --accentColor2: yellow;
+    --ctaBg: linear-gradient(to left, orange, orange 50%, #ffa700 80%);
+}
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+}
+a {
+    color: inherit;
+}
+li {
+    list-style-type: none;
+}
+/* general styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.733);
+    background: var(--bgMain);
+}
+h2 {
+    font-family: 'Style Script', cursive;
+}
+nav,
+main,
+footer {
+    padding: 0 10vw;
+}
+table,
+th,
+td {
+    border: 1px solid black;
+    padding: 0.2em 1em;
+    border-collapse: collapse;
+    text-align: center;
+}
+a:hover {
+    color: var(--accentColor);
+}
+a:active {
+    color: white;
+    outline: 1px dotted var(--accentColor);
+}
+/* navigation */
+nav {
+    height: 10vh;
+    background: rgba(0, 0, 0, 0.733);
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+nav a {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo {
+    font-family: 'Style Script', cursive;
+    font-size: 1.5rem;
+    color: var(--accentColor);
+    padding: 0 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 1px var(--accentColor);
+}
+nav ul {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+}
+nav li {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.userLogout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--bgSec);
+    padding: 0 0.2rem;
+    text-align: center;
+    box-shadow: inset 0 0 0 1px var(--accentColor);
+}
+.userLogout > span {
+    width: 100%;
+    height: 100%;
+    color: var(--accentColor);
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: var(--bgSec);
+    transform: translateY(0%);
+    box-shadow: 0 0 0 1px var(--accentColor);
+    transition: transform 0.3s ease-in;
+}
+.userLogout:hover > span {
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in;
+}
+
+/* main */
+main {
+    width: 100%;
+}
+
+/** sliders voor index en aanbod pagina's **/
+#carouselDivIndex,
+#carouselDivAanbod {
+    position: relative;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.84);
+}
+.broodjesSlider {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 4rem auto;
+}
+.broodjesSlider > .slide {
+    width: 99.999%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: calc(var(--i) * -1);
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 1s ease-in;
+}
+.broodjesSlider > .slide[data-position='current'] {
+    z-index: 0;
+    transform: translateX(0);
+    transition: transform 1s ease-in;
+}
+.broodjesSlider > .slide[data-position='previous'] {
+    z-index: -1;
+    transform: translateX(-100%);
+}
+.broodjesSlider > .slide[data-position='prev-prev'] {
+    z-index: -100;
+    transform: translateX(-200%);
+}
+.broodjesSlider > .slide[data-position='next'] {
+    transform: translateX(100%);
+}
+.broodjesSlider > .slide[data-position='next-next'] {
+    z-index: -100;
+    transform: translateX(200%);
+}
+.broodjesSlider > .slide > h3 {
+    font-size: clamp(2rem, 5rem, 10vh);
+    font-weight: bold;
+    width: 100%;
+    background: linear-gradient(to left, transparent, rgba(252, 250, 250, 0.432), transparent);
+    text-shadow: 0 0 3px rgb(8, 8, 8);
+    color: white;
+    text-align: center;
+}
+.carouselDiv button {
+    font-size: 0rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.322);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 5vw;
+    height: 5vh;
+    z-index: 10;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+.carouselDiv button:hover {
+    color: var(--accentColor);
+}
+.carouselDiv .next-button {
+    right: 0;
+}
+.carouselDiv button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    text-shadow: 1px -1px 0 rgb(99 98 98);
+    position: relative;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+.carouselDivIndex .prev-button::after {
+    border-right: 20px solid rgba(255, 255, 255, 0.322);
+}
+.carouselDivIndex .next-button::after {
+    border-left: 20px solid rgba(255, 255, 255, 0.322);
+}
+.carouselDivIndex .prev-button:hover::after {
+    border-right: 20px solid var(--accentColor);
+}
+.carouselDivIndex .next-button:hover::after {
+    border-left: 20px solid var(--accentColor);
+}
+.carouselDivIndex .prev-button:active::after {
+    border-right: 20px solid white;
+}
+.carouselDivIndex .next-button:active::after {
+    border-left: 20px solid white;
+}
+.broodjesSliderIndex-progress-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 5vh;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.466);
+}
+.broodjesSliderIndex-progress-1 > .indicator {
+    background: rgba(255, 255, 255, 0.322);
+    height: 8px;
+    width: 8px;
+    pointer-events: none;
+    margin: 0 2rem;
+    border-radius: 50%;
+}
+.broodjesSliderIndex-progress-1 > .indicator.current {
+    background: var(--accentColor);
+}
+
+/* pagina home */
+.mainTitle,
+h1 {
+    font-family: 'Style Script', cursive;
+    font-weight: bold;
+    font-size: clamp(5vh, 6rem, 14vh);
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 0 var(--accentColor);
+}
+.mainTitle {
+    margin-bottom: 0;
+}
+.subTitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 0 var(--accentColor);
+}
+section.bVDeWeek,
+section.nieuw {
+    color: white;
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 15vh 1fr;
+    gap: 2rem 0;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.84);
+}
+section.bVDeWeek > h2,
+section.nieuw > h2 {
+    grid-column: span 2;
+    font-size: 3.5rem;
+    justify-self: flex-start;
+    box-shadow: 0 1px 0 var(--accentColor);
+}
+section.bVDeWeek > h3,
+section.nieuw > h3 {
+    color: var(--accentColor);
+    grid-row-start: 2;
+    font-size: 2rem;
+    width: 100%;
+    align-self: center;
+    padding-right: 0.5rem;
+}
+section.bVDeWeek > img,
+section.nieuw > img {
+    grid-row: span 2;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+section.nieuw {
+    margin: 4rem auto;
+}
+.cta {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0 3px black;
+    background: var(--ctaBg);
+    padding: 0.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 0 1px black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.486), inset 0 0 15px 2px #f98d04;
+    transition: none;
+}
+.cta-aanbod {
+    font-size: 2rem;
+    text-decoration: none;
+    text-align: center;
+    width: 75%;
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
+    transform: translate(-50%, 50%);
+}
+.cta:hover {
+    color: inherit;
+    text-shadow: none;
+    text-decoration: underline;
+}
+.cta:active {
+    color: white;
+    box-shadow: inset 0 0 15px 2px #f98d04;
+}
+
+/* pagina aanbod */
+.carouselDivAanbod {
+    margin-bottom: 30vh;
+    height: 70vh;
+}
+#broodjesSliderAanbod {
+    height: 70vh;
+    /* box-shadow: inset -2px 0 0 black; */
+}
+.broodjesSliderAanbod > p,
+.broodjesSliderAanbod > a {
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+.broodjesSliderAanbod:hover > p,
+.broodjesSliderAanbod:hover > a {
+    opacity: 1;
+}
+.broodjesSliderAanbod.slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0 1rem;
+}
+.carouselDivAanbod .slide:hover > h3 {
+    background: linear-gradient(to left, white, rgba(252, 250, 250, 0.76), transparent);
+}
+.broodjesSliderAanbod.slide > h3 {
+    grid-row: span 3;
+    padding: 0 1rem;
+}
+.broodjesSliderAanbod.slide > p:nth-of-type(1) {
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    padding: 0 1rem;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgb(2, 2, 2, 0.5), rgba(252, 250, 250, 0.5), rgb(2, 2, 2, 0.5));
+    grid-column: span 2;
+    justify-self: center;
+    grid-row-start: 1;
+    transform: translateY(-100%);
+}
+.broodjesSliderAanbod.slide:hover > p:nth-of-type(1) {
+    transform: translateY(0);
+}
+.broodjesSliderAanbod.slide > p:nth-of-type(2) {
+    font-size: clamp(5vh, 5rem, 8vw);
+    color: white;
+    padding: 0 1rem;
+    text-shadow: 0 0 3px black;
+    background: var(--ctaBg);
+    font-weight: bold;
+    justify-self: flex-end;
+    align-self: flex-end;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.486);
+    transform: translateX(100%);
+}
+.broodjesSliderAanbod.slide:hover > p:nth-of-type(2) {
+    transform: translateX(0);
+}
+.broodjesSliderAanbod > a {
+    font-size: 1.5rem;
+    width: calc(50% - 1rem);
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-end;
+    align-self: flex-end;
+    grid-row: span 2;
+}
+
+.carouselDivAanbod > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -35%;
+    width: 4rem;
+    height: 4rem;
+    color: grey;
+    border-radius: 50%;
+    background: var(--ctaBg);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.486), inset 0 0 15px 2px #f98d04;
+}
+.carouselDivAanbod .prev-button::after {
+    border-right: 20px solid rgba(11, 10, 10, 0.48);
+}
+.carouselDivAanbod .next-button::after {
+    border-left: 20px solid rgba(11, 10, 10, 0.48);
+}
+.carouselDivAanbod .prev-button:hover::after {
+    border-right: 20px solid black;
+}
+.carouselDivAanbod .next-button:hover::after {
+    border-left: 20px solid black;
+}
+.carouselDivAanbod .prev-button:active::after {
+    border-right: 20px solid white;
+}
+.carouselDivAanbod .next-button:active::after {
+    border-left: 20px solid white;
+}
+.carouselDivAanbod > button::after {
+    text-shadow: none;
+}
+.carouselDivAanbod > button:hover {
+    color: white;
+}
+.carouselDivAanbod > button:active {
+    color: black;
+    box-shadow: inset 0 0 15px 2px #f98d04;
+}
+.carouselDivAanbod > .next-button {
+    right: 35%;
+    padding-left: 0.5rem;
+}
+.carouselDivAanbod > .prev-button {
+    left: 35%;
+    padding-right: 0.5rem;
+}
+/* pagina login / registreren */
+.container {
+    position: relative;
+    width: 80vw;
+    height: 500px;
+    margin: 2rem 0;
+}
+.containerBg {
+    position: absolute;
+    top: 40px;
+    top: 2.5rem;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+.containerBg .box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.containerBg .box h2 {
+    color: white;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: -1px 0px 6px #00000091;
+}
+.containerBg .box button {
+    cursor: pointer;
+    padding: 10px 20px;
+    color: black;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    border: none;
+}
+
+.containerBg .box button:hover {
+    background: var(--accentColor);
+}
+.containerBg .box button:active {
+    color: white;
+}
+.formBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, orange, orange 50%, #ffa700 80%);
+    z-index: 1000;
+    display: flex;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in-out;
+}
+.formBx.active {
+    left: 50%;
+}
+.formError {
+    font-size: 0.8rem;
+    top: 0;
+    color: red;
+    margin-left: 2rem;
+    display: block;
+}
+.formBx .form {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    transition: 0.5s;
+}
+.formBx .signinForm {
+    transition-delay: 0.25s;
+}
+.formBx .signupForm {
+    left: 100%;
+    transition-delay: 0s;
+}
+.formBx.active .signinForm {
+    left: -100%;
+    transition-delay: 0s;
+}
+.formBx.active .signupForm {
+    left: 0;
+    transition-delay: 0.25s;
+}
+.formBx form {
+    color: white;
+    width: 100%;
+    height: 70vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formBx form h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: rgb(32, 32, 32);
+    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+}
+input {
+    color: white;
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 5vh;
+    padding-left: 1vh;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgb(5, 5, 5);
+}
+.formBx form input[type='submit'] {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    color: white;
+    background: var(--accentColor);
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px white;
+}
+section form > input:not([type='submit']) {
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 0.5vh 0.5vh 0.5vh 1vh;
+    padding: 1vh;
+    height: 4vh;
+    transition: 0.2s ease-out;
+    background: rgba(3, 3, 3, 0.164);
+}
+section form > label {
+    font-size: 0.9rem;
+    color: grey;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    outline: none;
+    height: 4vh;
+    padding-left: 1vh;
+    transition: 0.5s ease-in-out;
+}
+.signinForm input {
+    margin: 0.2rem 0;
+}
+section form > input:focus {
+    box-shadow: 0 0 0 2px var(--accentColor);
+    color: black;
+    background: rgba(253, 253, 253, 0.514);
+}
+.signinForm form > label {
+    transform: translate(0vh, -4.5vh);
+}
+.signupForm form > label {
+    transform: translate(0vh, -5.5vh);
+}
+.signinForm form > input:focus + label,
+.signinForm form > input:valid + label {
+    color: white;
+    transform: scale(0.9) translate(-3vh, -9vh);
+}
+.signupForm form > input:focus + label,
+.signupForm form > input:valid + label {
+    color: white;
+    transform: scale(0.9) translate(-3vh, -10vh);
+}
+section form > input:valid + label {
+    color: grey;
+}
+section form > input[type='submit']:hover {
+    color: var(--accentColor);
+    background: white;
+}
+section form > input[type='submit']:active {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
+}
+.small {
+    font-size: 0.8rem;
+}
+/* pagina bestellen */
+.klantNaam {
+    color: var(--accentColor);
+    text-shadow: 1px 1px 3px black;
+}
+table {
+    margin-bottom: 2rem;
+    background: rgba(248, 248, 248, 0.466);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.84);
+}
+table th,
+td {
+    height: 10vh;
+}
+.broodjeAanmaken {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.84);
+}
+.broodjeAanmaken > input {
+    width: 50%;
+    color: black;
+}
+.broodjeAanmaken > input[type='submit'] {
+    margin-top: 1.5rem;
+    color: white;
+}
+/* pagina overzicht */
+.bestellingsTabel {
+    width: 100%;
+}
+/* pagina logout */
+
+/* footer */
+footer {
+    font-size: 0.9rem;
+    background: var(--bgSec);
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 1rem 0;
+    padding-top: 3rem;
+}
+footer section {
+    text-align: left;
+}
+footer section:nth-of-type(2) {
+    justify-self: center;
+    text-align: center;
+}
+footer section:nth-of-type(3) {
+    justify-self: flex-end;
+    text-align: right;
+}
+footer section:last-of-type {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer section:last-of-type > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0 1rem;
+}
+footer section:last-of-type > ul li {
+    display: inline;
+    font-size: 0.7rem;
+    text-align: center;
+}
+footer section:last-of-type > ul li a {
+    color: var(--accentColor);
+}
+footer section:last-of-type > ul li a:hover {
+    color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    .formBx .form {
+        padding: 0;
+    }
+    .broodjesSliderAanbod > a {
+        width: calc(60% - 1rem);
+    }
+}
+@media only screen and (max-width: 800px) {
+    .broodjesSliderAanbod > a {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    nav ul li {
+        font-size: 80%;
+    }
+    .mainTitle,
+    h1 {
+        font-size: clamp(5vh, 5rem, 11vw);
+    }
+    .subTitle {
+        font-size: 100%;
+    }
+    section.bVDeWeek > h2,
+    section.nieuw > h2 {
+        font-size: clamp(5vh, 3.5rem, 8vw);
+    }
+    section.bVDeWeek > h3,
+    section.nieuw > h3 {
+        font-size: clamp(4vh, 3.5rem, 6vw);
+    }
+    .broodjesSlider > .slide > h3 {
+        font-size: clamp(5vh, 3.5rem, 8vw);
+    }
+    .carouselDivAanbod > button {
+        bottom: -23%;
+    }
+    .carouselDivAanbod > .prev-button {
+        left: 20%;
+    }
+    .carouselDivAanbod > .next-button {
+        right: 20%;
+    }
+    .cta-aanbod {
+        width: 100%;
+        margin-bottom: 4rem;
+        margin-top: -3rem;
+    }
+    .container {
+        max-width: 400px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem auto;
+    }
+    .container .containerBg {
+        top: 0;
+        height: 100%;
+    }
+    .containerBg .box h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .formBx {
+        width: 100%;
+        max-height: 350px;
+        top: 0;
+        box-shadow: none;
+    }
+    .formBx form {
+        max-height: 350px;
+        height: auto;
+    }
+    .formBx.active {
+        top: 150px;
+        left: 0;
+    }
+    .formBx input {
+        margin-bottom: 0.2rem;
+    }
+    .signupForm form > input:focus + label,
+    .signupForm form > input:valid + label {
+        transform: scale(0.9) translate(-1.2rem, -3.2rem);
+    }
+    .signupForm form > label {
+        transform: translate(0vh, -1.6rem);
+    }
+    .formBx.active .signinForm {
+        left: -150%;
+    }
+    .containerBg .box {
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        bottom: 0;
+    }
+    .box.signin {
+        top: 0;
+    }
+    table {
+        width: 95vw;
+        left: -9vw;
+        position: relative;
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    footer > section {
+        padding-bottom: 1rem;
+        width: 80vw;
+    }
+    footer > section:not(:last-of-type) {
+        border-bottom: 1px solid var(--accentColor);
+    }
+    footer > section * {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 450px) {
+    nav,
+    main,
+    footer {
+        padding: 0;
+    }
+    footer {
+        padding-top: 2rem;
+    }
+    section.bVDeWeek,
+    section.nieuw {
+        padding: 0.8rem;
+    }
+    .broodjesSliderIndex-progress-1 > .indicator {
+        margin: 0 1rem;
+    }
+    .carouselDivAanbod {
+        margin-bottom: 7rem;
+    }
+    table {
+        width: 100%;
+        left: 0;
+        font-size: 80%;
+    }
+}
+@media only screen and (max-width: 360px) {
+    nav {
+        height: 6rem;
+    }
+    nav ul {
+        display: grid;
+        width: 50%;
+        grid-template-columns: 1fr 0.5fr;
+        grid-auto-flow: row;
+    }
+    table {
+        font-size: 60%;
+    }
+}
