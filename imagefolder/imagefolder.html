@@ -1,0 +1,43 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="./scripts/js/swiper.js" defer></script>
+        <script src="./scripts/js/image_folder.js" defer></script>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/imagefolder.css" />
+        <script src="./data/image_data.js"></script>
+        <title>Image folder</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 class="title">Hrvatska</h1>
+                <button type="button" class="fullscreen" id="fullscreen">X</button>
+            </header>
+            <div class="image-wrapper">
+                <div class="image-box">
+                    <span id="info"></span>
+                    <span class="left front" id="d"></span>
+                    <span class="right front" id="c"></span>
+                </div>
+                <span id="description" class="description" tabindex="0"></span>
+                <div class="thumb-box">
+                    <div class="thumb-display">
+                        <span class="button" id="prev" tabindex="0"></span>
+                        <span class="thumbs leftout" data-background="4" data-origin="leftout" data-image="4"></span>
+                        <span class="thumbs left" data-background="3" data-origin="left" data-image="3"></span>
+                        <span class="thumbs current" data-background="2" data-origin="current" data-image="2"></span>
+                        <span class="thumbs right" data-background="1" data-origin="right" data-image="1"></span>
+                        <span class="thumbs rightout" data-background="0" data-origin="rightout" data-image="0"></span>
+                        <span class="button" id="next" tabindex="0"></span>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="fullscreen" id="fullscreen-close">X</button>
+        </div>
+    </body>
+</html>
